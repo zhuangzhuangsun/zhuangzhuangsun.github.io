@@ -8,21 +8,17 @@
 
 <title>
   
-    文件系统操作
+    Tag: C++
   
 </title>
 
-<meta name="keywords" content="linux">
-<meta property="og:type" content="article">
-<meta property="og:title" content="文件系统操作">
-<meta property="og:url" content="http://yoursite.com/2019/04/18/文件系统操作/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="韭菜熟了">
+<meta property="og:url" content="http://yoursite.com/tags/C/index.html">
 <meta property="og:site_name" content="韭菜熟了">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/2019/04/18/文件系统操作/girl2.jpeg">
-<meta property="og:updated_time" content="2019-04-18T10:08:46.984Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文件系统操作">
-<meta name="twitter:image" content="http://yoursite.com/2019/04/18/文件系统操作/girl2.jpeg">
+<meta name="twitter:title" content="韭菜熟了">
 
 
   <link rel="alternative" href="/atom.xml" title="韭菜熟了" type="application/atom+xml">
@@ -146,64 +142,52 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-文件系统操作" class="article article-type-post">
+          <h1>C++</h1>
+
+
   
-    <h1 class="article-header">
-      文件系统操作
-    </h1>
   
+    <div class="post-list">
   
 
-  <div class="article-info">
-    <span class="article-date">
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/04/18/引用和指针的区别/">
+  引用和指针的区别
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/04/18/引用和指针的区别/"><span class="article-date">
   2019-04-18
 </span>
-
-    
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/computer-system/">computer system</a></li></ul>
-	</span>
-
-
-    
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</span>
-
-
-  </div>
-  <div class="article-entry">
-    <img src="/2019/04/18/文件系统操作/girl2.jpeg" title="西野七濑">
-<a id="more"></a>
-<h2 id="遍历目录"><a href="#遍历目录" class="headerlink" title="遍历目录"></a>遍历目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> destiantion <span class="comment">#cd 加目录名 可切换到目标目录 change dictionary</span></span><br></pre></td></tr></table></figure>
-<p>destiantion可用相对目录和绝对目录来表示<br>绝对目录路径以正斜线/开始，正斜线表示根目录，也可以～开始 表示家目录<br>相对路径为基于当前位置的目标文件路径 单点符.表示当前目录 双点符表示当前目录的父目录。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span>  <span class="comment">#print work dictionary 显示当前目录</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="基本列表功能"><a href="#基本列表功能" class="headerlink" title="基本列表功能"></a>基本列表功能</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ls    <span class="comment">#list 显示当前目录下的文件和目录</span></span><br><span class="line">ls -F <span class="comment"># -F参数在目录名后加了正斜线/ 便于区分文件和目录</span></span><br><span class="line">ls -a <span class="comment"># 显示所有文件 包括隐藏文件</span></span><br><span class="line">ls -R <span class="comment">#列出当前目录下包含的子目录中的文件</span></span><br><span class="line">ls -l <span class="comment">#显示长列表  每一行都包括一个文件的许多信息</span></span><br></pre></td></tr></table></figure>
-<h2 id="处理文件"><a href="#处理文件" class="headerlink" title="处理文件"></a>处理文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">touch <span class="built_in">test</span> <span class="comment">#创建一个空的文件</span></span><br><span class="line">cp <span class="built_in">source</span> destination <span class="comment"># copy复制文件</span></span><br><span class="line">mv <span class="built_in">source</span> destination <span class="comment">#move 用来重命名或者移动文件 文件夹</span></span><br></pre></td></tr></table></figure>
-<h2 id="处理目录"><a href="#处理目录" class="headerlink" title="处理目录"></a>处理目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir 目录名  <span class="comment">#新建一个目录</span></span><br><span class="line">mkdir -p     <span class="comment">#同时创建多个目录和子目录</span></span><br><span class="line">rmdir 目录名  <span class="comment">#删除目录 默认只删除空目录</span></span><br><span class="line">rm -ir       <span class="comment">#删除目录及其所有内容</span></span><br><span class="line">tree <span class="comment">#以树状图的形式显示目录子目录及其中的文件  需要手动安装</span></span><br></pre></td></tr></table></figure>
-<h2 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">file my_file <span class="comment">#查看文件类型</span></span><br><span class="line">cat test1 <span class="comment"># 查看整个文件内容</span></span><br><span class="line">tail -n text <span class="comment">#显示文件的最后n行</span></span><br><span class="line">head -n text <span class="comment">#显示文件的前n行</span></span><br></pre></td></tr></table></figure>
-  </div>
-  <footer class="article-footer">
-    
-  <div class="cc">
-    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.e" target="_blank" title="Attribution-ShareAlike">
-      <img src="/images/cc/cc.png">
-      
-          <img src="/images/cc/by.png">
+</a>
         
-          <img src="/images/cc/sa.png">
-      
-      <span>
-        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
-      </span>
-    </a>
-  </div>
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/program-lauguage/">program lauguage</a></li></ul>
+	</span>
 
 
-    
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
 
-  </footer>
-</article>
 
+      </div>
+      <div class="article-entry">
+        
+          
+<a id="more"></a>
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
 
 
