@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="韭菜熟了">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/2019/04/19/环境变量/fddm2.jpg">
-<meta property="og:updated_time" content="2019-04-19T06:49:13.274Z">
+<meta property="og:updated_time" content="2019-04-19T07:10:13.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="环境变量">
 <meta name="twitter:image" content="http://yoursite.com/2019/04/19/环境变量/fddm2.jpg">
@@ -181,22 +181,14 @@
 <li>局部变量</li>
 </ul>
 <p>linxu系统在开始bash会话时就设置了一些全局环境变量。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">env  <span class="comment">#查看所有全局变量</span></span><br><span class="line">printenv  <span class="comment">#查看所有全局变量</span></span><br><span class="line">$ printenv HOME <span class="comment"># printenv命令也可以用来查看某个全局变量</span></span><br><span class="line">/home/mike</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$HOME</span>  <span class="comment">#echo 命令不仅显示某个局部变量的值  同时让变量作为命令行参数</span></span><br><span class="line">/home/mike</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> <span class="comment">#set命令显示为某个特定进程设置的所有环境变量 包括局部变量 全局变量 以及用户自定义变量</span></span><br></pre></td></tr></table></figure></p>
-<blockquote>
-</blockquote>
 <h2 id="用户自定义变量"><a href="#用户自定义变量" class="headerlink" title="用户自定义变量"></a>用户自定义变量</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ my_variable=<span class="string">'Hello world'</span><span class="comment">#变量名 等号 值之间不能有空格 值为含有空格的字符串 要用单引号括起来</span></span><br><span class="line"></span><br><span class="line">$ <span class="built_in">echo</span> my_variable</span><br><span class="line">Hello worle</span><br><span class="line">$ <span class="built_in">export</span> my_variable <span class="comment">#将局部变量导出到全局环境中</span></span><br><span class="line"><span class="built_in">unset</span> my_variable <span class="comment">#删除环境变量</span></span><br></pre></td></tr></table></figure>
 <p>子shell无法使用父shell中设置的用户自定义变量，在子shell中设置了局部变量，一旦退出子shell 这个局部变量便不可用。</p>
 <p>在设定全局环境变量的进程所创建的子进程中，该变量均为可见的。修改或者删除子shell中的全局环境变量的值并不会影响到父shell中该变量的值。<br>子shell无法使用export命令改变父shell中全局环境变量的值。</p>
-<blockquote>
-</blockquote>
 <h2 id="PATH环境变量设置"><a href="#PATH环境变量设置" class="headerlink" title="PATH环境变量设置"></a>PATH环境变量设置</h2><p>当在shell命令行中输入一个外部命令时，shell必须搜索系统来找到对应的程序。PATH环境变量定义了用于进行命令和程序查找的目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$PATH</span>  <span class="comment">#PATH中的目录间用冒号分隔</span></span><br><span class="line">/home/mike/.<span class="built_in">local</span>/bin:/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/<span class="built_in">local</span>/games:/snap/bin</span><br></pre></td></tr></table></figure>
 <p>问题是应用程序放置可执行文件的目录常常不在PATH所包含的目录中。解决方法是保证PATH中包含了所有存放应用程序的目录。<br>可以把新的搜索目录添加到现有的PATH目录中。无需从头定义。<br>只需要引用原来的值，再给这个字符串添加新目录就可以了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$PATH</span></span><br><span class="line">/home/mike/.<span class="built_in">local</span>/bin:/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/<span class="built_in">local</span>/games:/snap/bin</span><br><span class="line">$</span><br><span class="line">$ PATH=<span class="variable">$PATH</span>:/home/mike/Scripts</span><br><span class="line">$</span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$PATH</span></span><br><span class="line">/home/mike/.<span class="built_in">local</span>/bin:/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/<span class="built_in">local</span>/games:/snap/bin:/home/mike/Scripts</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-</blockquote>
 <p>通常的办法是将单点符加入PATH环境变量中，单点符代表当前目录。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PATH=<span class="variable">$PATH</span>:.</span><br></pre></td></tr></table></figure></p>
 <p><strong>对PATH变量的修改只能持续到推出或者重启系统，并不能一直持续</strong></p>
-<blockquote>
-</blockquote>
 <h2 id="系统环境变量"><a href="#系统环境变量" class="headerlink" title="系统环境变量"></a>系统环境变量</h2><p>当登陆linux系统时，bash shell会作为登陆shell启动，登陆shell会从5个不同的启动文件中读取命令：</p>
 <ul>
 <li>/ect/profile</li>
