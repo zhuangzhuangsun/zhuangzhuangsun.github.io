@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    python的类成员方法
+  
+</title>
+
+<meta name="description" content="原作者：haozlee来源：CSDN原文题目：Python 实例方法、类方法和静态方法链接：https://blog.csdn.net/lihao21/article/details/79762681版权声明：本文为博主原创文章，转载请附上博文链接！">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python的类成员方法">
+<meta property="og:url" content="http://yoursite.com/2019/04/20/python的类成员方法/index.html">
+<meta property="og:site_name" content="韭菜熟了">
+<meta property="og:description" content="原作者：haozlee来源：CSDN原文题目：Python 实例方法、类方法和静态方法链接：https://blog.csdn.net/lihao21/article/details/79762681版权声明：本文为博主原创文章，转载请附上博文链接！">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-04-20T12:54:04.035Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python的类成员方法">
+<meta name="twitter:description" content="原作者：haozlee来源：CSDN原文题目：Python 实例方法、类方法和静态方法链接：https://blog.csdn.net/lihao21/article/details/79762681版权声明：本文为博主原创文章，转载请附上博文链接！">
+
+
+  <link rel="alternative" href="/atom.xml" title="韭菜熟了" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body>
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">韭菜熟了</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">韭菜熟了</a></h1>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+          <div class="author">mike</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="www.zzzszzz.xyz"><img src="https://i.loli.net/2019/04/17/5cb6ab0c2a104.jpeg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/computer-system/">computer system</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/diary/">diary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/program-lauguage/">program lauguage</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">-hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/炮姐-动漫/">-炮姐 -动漫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">9</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/denjones/hexo-theme-chan" title="Chan" target="_blank" rel="noopener">Chan</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/zhuangzhuangsun" title="Github" target="_blank" rel="noopener">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/atom.xml" title="RSS">RSS</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-python的类成员方法" class="article article-type-post">
+  
+    <h1 class="article-header">
+      python的类成员方法
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2019-04-20
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/program-lauguage/">program lauguage</a></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <p>原作者：haozlee<br>来源：CSDN<br>原文题目：Python 实例方法、类方法和静态方法<br>链接：<a href="https://blog.csdn.net/lihao21/article/details/79762681" target="_blank" rel="noopener">https://blog.csdn.net/lihao21/article/details/79762681</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！<br><a id="more"></a><br>Python 的类成员方法分为实例方法，类方法和静态方法。</p>
+<h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h2><p><strong>实例方法用得最多，也最常见。</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Kls</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.data = data</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">printd</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ik1 = Kls(<span class="string">'leo'</span>)</span><br><span class="line">ik2 = Kls(<span class="string">'lee'</span>)</span><br><span class="line"></span><br><span class="line">ik1.printd()</span><br><span class="line">ik2.printd()</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">leo </span><br><span class="line">lee</span><br></pre></td></tr></table></figure></p>
+<p>上述例子中，printd为一个实例方法。实例方法第一个参数为self，当使用ik1.printd()调用实例方法时，实例ik1会传递给self参数，这样self参数就可以引用当前正在调用实例方法的实例。利用实例方法的这个特性，上述代码正确输出了两个实例的成员数据</p>
+<h2 id="类方法"><a href="#类方法" class="headerlink" title="类方法"></a>类方法</h2><p><strong>类方法采用装饰器@classmethod来定义。</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Kls</span><span class="params">(object)</span>:</span></span><br><span class="line">    num_inst = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        Kls.num_inst = Kls.num_inst + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_no_of_instance</span><span class="params">(cls)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> cls.num_inst</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ik1 = Kls()</span><br><span class="line">ik2 = Kls()</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> ik1.get_no_of_instance()</span><br><span class="line"><span class="keyword">print</span> Kls.get_no_of_instance()</span><br><span class="line"></span><br><span class="line">输出为：</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p>上述例子中，我们需要统计类Kls实例的个数，因此定义了一个类变量num_inst来存放实例个数。通过装饰器@classmethod的使用，方法get_no_of_instance被定义成一个类方法。在调用类方法时，Python 会将类（class Kls）传递给cls，这样在get_no_of_instance内部就可以引用类变量num_inst。<br>由于在调用类方法时，只需要将类型本身传递给类方法，因此，既可以通过类也可以通过实例来调用类方法。</p>
+<h2 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h2><p>在开发中，我们常常需要定义一些方法，这些方法跟类有关，但在实现时并不需要引用类或者实例，例如，设置环境变量，修改另一个类的变量，等。这个时候，我们可以使用静态方法。<br><strong>Python 使用装饰器@staticmethod来定义一个静态方法。</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">IND = <span class="string">'ON'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Kls</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.data = data</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">checkind</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> IND == <span class="string">'ON'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_reset</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.checkind():</span><br><span class="line">            print(<span class="string">'Reset done for: %s'</span> % self.data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_db</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.checkind():</span><br><span class="line">            print(<span class="string">'DB connection made for: %s'</span> % self.data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ik1 = Kls(<span class="number">24</span>)</span><br><span class="line">ik1.do_reset()</span><br><span class="line">ik1.set_db()</span><br><span class="line"></span><br><span class="line">输出为：</span><br><span class="line">Reset done <span class="keyword">for</span>: <span class="number">24</span> </span><br><span class="line">DB connection made <span class="keyword">for</span>: <span class="number">24</span></span><br></pre></td></tr></table></figure></p>
+<p>在代码中，我们定义了一个全局变量IND，由于IND跟类Kls相关，所以我们将方法checkind放置在类Kls中定义。方法checkind只需检查IND的值，而不需要引用类或者实例，因此，我们将方法checkind定义为静态方法。<br>对于静态方法，Python 并不需要传递类或者实例，因此，既可以使用类也可以使用实例来调用静态方法。</p>
+<h2 id="实例方法，类方法与静态方法的区别"><a href="#实例方法，类方法与静态方法的区别" class="headerlink" title="实例方法，类方法与静态方法的区别"></a>实例方法，类方法与静态方法的区别</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Kls</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        print(<span class="string">'executing foo(%s,%s)'</span> % (self, x))</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod # Python 使用装饰器@staticmethod来定义一个类方法。</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">class_foo</span><span class="params">(cls,x)</span>:</span></span><br><span class="line">        print(<span class="string">'executing class_foo(%s,%s)'</span> % (cls,x))</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod # Python 使用装饰器@staticmethod来定义一个静态方法。</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">static_foo</span><span class="params">(x)</span>:</span></span><br><span class="line">        print(<span class="string">'executing static_foo(%s)'</span> % x)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ik = Kls()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 实例方法</span></span><br><span class="line">ik.foo(<span class="number">1</span>)</span><br><span class="line">print(ik.foo)</span><br><span class="line">print(<span class="string">'=========================================='</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 类方法</span></span><br><span class="line">ik.class_foo(<span class="number">1</span>)</span><br><span class="line">Kls.class_foo(<span class="number">1</span>)</span><br><span class="line">print(ik.class_foo)</span><br><span class="line">print(<span class="string">'=========================================='</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 静态方法</span></span><br><span class="line">ik.static_foo(<span class="number">1</span>)</span><br><span class="line">Kls.static_foo(<span class="string">'hi'</span>)</span><br><span class="line">print(ik.static_foo)</span><br><span class="line"></span><br><span class="line">输出为：</span><br><span class="line">executing foo(&lt;__main__.Kls object at <span class="number">0x0551E190</span>&gt;,<span class="number">1</span>)</span><br><span class="line">&lt;bound method Kls.foo of &lt;__main__.Kls object at <span class="number">0x0551E190</span>&gt;&gt;</span><br><span class="line">==========================================</span><br><span class="line">executing class_foo(&lt;class '__main__.Kls'&gt;,1)</span><br><span class="line">executing class_foo(&lt;class '__main__.Kls'&gt;,1)</span><br><span class="line">&lt;bound method type.class_foo of &lt;<span class="class"><span class="keyword">class</span> '<span class="title">__main__</span>.<span class="title">Kls</span>'&gt;&gt;</span></span><br><span class="line">==========================================</span><br><span class="line">executing static_foo(<span class="number">1</span>)</span><br><span class="line">executing static_foo(hi)</span><br><span class="line">&lt;function static_foo at <span class="number">0x055238B0</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>对于实例方法，调用时会把实例ik作为第一个参数传递给self参数。因此，调用ik.foo(1)时输出了实例ik的地址。</p>
+<p>对于类方法，调用时会把类Kls作为第一个参数传递给cls参数。因此，调用ik.class_foo(1)时输出了Kls类型信息。<br>前面提到，可以通过类也可以通过实例来调用类方法，在上述代码中，我们再一次进行了验证。</p>
+<p>对于静态方法，调用时并不需要传递类或者实例。其实，静态方法很像我们在类外定义的函数，只不过静态方法可以通过类或者实例来调用而已。</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.e" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2019 韭菜熟了 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>
