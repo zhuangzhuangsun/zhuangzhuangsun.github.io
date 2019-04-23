@@ -8,17 +8,22 @@
 
 <title>
   
-    Tag: C++
+    PSR
   
 </title>
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="韭菜熟了">
-<meta property="og:url" content="http://yoursite.com/tags/C/index.html">
+<meta name="description" content="PSR matlab计算PSR(Pure Superpixle Ratio):纯净超像素率。计算方法为纯净超像素的个数除以总超像素个数。 matlab程序如下： 12345678910111213141516171819202122232425262728293031323334353637383940414243%input:%      S：超像素分割的结果%	   GT：groundtru">
+<meta name="keywords" content="superpixel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PSR">
+<meta property="og:url" content="http://yoursite.com/2019/04/23/PSR/index.html">
 <meta property="og:site_name" content="韭菜熟了">
+<meta property="og:description" content="PSR matlab计算PSR(Pure Superpixle Ratio):纯净超像素率。计算方法为纯净超像素的个数除以总超像素个数。 matlab程序如下： 12345678910111213141516171819202122232425262728293031323334353637383940414243%input:%      S：超像素分割的结果%	   GT：groundtru">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-04-23T07:51:05.273Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="韭菜熟了">
+<meta name="twitter:title" content="PSR">
+<meta name="twitter:description" content="PSR matlab计算PSR(Pure Superpixle Ratio):纯净超像素率。计算方法为纯净超像素的个数除以总超像素个数。 matlab程序如下： 12345678910111213141516171819202122232425262728293031323334353637383940414243%input:%      S：超像素分割的结果%	   GT：groundtru">
 
 
   <link rel="alternative" href="/atom.xml" title="韭菜熟了" type="application/atom+xml">
@@ -142,104 +147,61 @@
       
         <div style="max-width: 1000px">
       
-          <h1>C++</h1>
-
-
+          <article id="post-PSR" class="article article-type-post">
+  
+    <h1 class="article-header">
+      PSR
+    </h1>
   
   
-    <div class="post-list">
-  
 
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/04/19/基于对象的编程风格/">
-  基于对象的编程风格
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/04/19/基于对象的编程风格/"><span class="article-date">
-  2019-04-19
+  <div class="article-info">
+    <span class="article-date">
+  2019-04-23
 </span>
-</a>
-        
+
+    
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/program-lauguage/">program lauguage</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/algorithm/">algorithm</a></li></ul>
 	</span>
 
 
-        
+    
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/superpixel/">superpixel</a></li></ul>
 	</span>
 
 
-      </div>
-      <div class="article-entry">
-        
-          <img src="/2019/04/19/基于对象的编程风格/fddm6.jpg" title="房东的猫">
-          <p>
-            <a href="/2019/04/19/基于对象的编程风格/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
+  </div>
+  <div class="article-entry">
+    <a id="more"></a>
+<h2 id="PSR-matlab计算"><a href="#PSR-matlab计算" class="headerlink" title="PSR matlab计算"></a>PSR matlab计算</h2><p>PSR(Pure Superpixle Ratio):纯净超像素率。计算方法为纯净超像素的个数除以总超像素个数。</p>
+<p><strong>matlab程序如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">%input:</span><br><span class="line">%      S：超像素分割的结果</span><br><span class="line">%	   GT：groundtruth图像  图像元素为类标 整数从1开始</span><br><span class="line"></span><br><span class="line">%output:</span><br><span class="line">%		s_error:分类错误的像素数目占超像素总像素数目的比例</span><br><span class="line">%		PSR：纯净超像素个数占总超像素个数的比例</span><br><span class="line">function [s_error,PSR] = getError(S, GT)</span><br><span class="line"></span><br><span class="line">    % check image sizes</span><br><span class="line">    [hS ,wS ,cS] = size(S);</span><br><span class="line">    [hGT,wGT ,cGT] = size(GT);</span><br><span class="line">    if hS~=hGT || wS~= wGT || cS~=1 || cGT~=1</span><br><span class="line">        fprintf(&apos;Size error in getUndersegmentationError\n&apos;);</span><br><span class="line">        return;</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    nS = double(max(S(:))); %超像素的个数</span><br><span class="line">    nGT = double(max(GT(:)));    %GROUNDtruth的类数</span><br><span class="line"></span><br><span class="line">    % prepare intersection matrix: M(i,j) = overlapping of GT==i and S==j</span><br><span class="line">    % prepare areas of segments of S and GT</span><br><span class="line">    areaS = zeros(nS,1); %和超像素个数一样长的向量 </span><br><span class="line">    areaGT = zeros(nGT,1);   %类别*1 </span><br><span class="line">    nps = zeros(nS,1);   %每个超像素中的像素个数</span><br><span class="line">    error = zeros(nS,1); %每个超像素中分类错误的像素数目</span><br><span class="line">    num=0;</span><br><span class="line">   % M = zeros(nGT, nS);</span><br><span class="line">    for i =1:nS</span><br><span class="line">        l=find(S==i);%第i个超像素的索引</span><br><span class="line">        nps(i)=length(l);%第i个超像素内像素个数</span><br><span class="line">        for j =1:nGT</span><br><span class="line">            areaGT(j)=length(find(GT(l)==j));</span><br><span class="line">        end</span><br><span class="line">        if(nps(i)==max(areaGT))</span><br><span class="line">            num = num+1;</span><br><span class="line">        end</span><br><span class="line">        areaS(i)=max(areaGT); </span><br><span class="line">        error(i) = nps(i)-areaS(i);</span><br><span class="line">    end</span><br><span class="line">       s_error=sum(error,&apos;all&apos;)/sum(nps,&apos;all&apos;);</span><br><span class="line">       PSR = num/nS;</span><br></pre></td></tr></table></figure>
 
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/04/18/引用和指针的区别/">
-  引用和指针的区别
-</a>
-
-      </h3>
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.e" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
       
-
-      <div class="article-info">
-        <a href="/2019/04/18/引用和指针的区别/"><span class="article-date">
-  2019-04-18
-</span>
-</a>
+          <img src="/images/cc/by.png">
         
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/program-lauguage/">program lauguage</a></li></ul>
-	</span>
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
 
 
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</span>
+    
 
+  </footer>
+</article>
 
-      </div>
-      <div class="article-entry">
-        
-          <img src="/2019/04/18/引用和指针的区别/girl3.jpeg" title="西野七濑">
-          <p>
-            <a href="/2019/04/18/引用和指针的区别/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
 
 
 
