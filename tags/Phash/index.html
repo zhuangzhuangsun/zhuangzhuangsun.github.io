@@ -179,18 +179,12 @@
       </div>
       <div class="article-entry">
         
-          <a id="more"></a>
-<h2 id="phash算法"><a href="#phash算法" class="headerlink" title="phash算法"></a>phash算法</h2><p>pHash的工作过程如下：</p>
-<p>（1）缩小尺寸：pHash以小图片开始，但图片大于8 <em> 8，32 </em> 32是最好的。这样做的目的是简化了DCT的计算，而不是减小频率。</p>
-<p>（2）简化色彩：将图片转化成灰度图像，进一步简化计算量。</p>
-<p>（3）计算DCT：计算图片的DCT变换，得到32 * 32的DCT系数矩阵。</p>
-<p>（4）缩小DCT：虽然DCT的结果是32 <em> 32大小的矩阵，但我们只要保留左上角的8 </em> 8的矩阵，这部分呈现了图片中的最低频率。</p>
-<p>（5）计算平均值：如同均值哈希一样，计算DCT的均值。</p>
-<p>（6）计算hash值：这是最主要的一步，根据8 * 8的DCT矩阵，设置0或1的64位的hash值，大于等于DCT均值的设为”1”，小于DCT均值的设为“0”。组合在一起，就构成了一个64位的整数，这就是这张图片的指纹。</p>
-<p>代码地址：<a href="https://github.com/JohannesBuchner/imagehash" target="_blank" rel="noopener">https://github.com/JohannesBuchner/imagehash</a></p>
-<p><strong>代码示例</strong></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> imagebash</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">hash=imagehash.phash(Image.open(<span class="string">'world1.png'</span>))</span><br><span class="line"><span class="comment"># hash=imagehash.average_hash(Image.open('world1.png')) #均值hash</span></span><br><span class="line"><span class="comment"># hash=imagehash.dhash(Image.open('world1.png')) #dhash</span></span><br><span class="line"><span class="comment"># hash=imagehash.whash(Image.open('world1.png')) #whash</span></span><br><span class="line">otherhash=imagehash.phash(Image.open(<span class="string">'world2.png'</span>))</span><br><span class="line">print(hash-otherhash)</span><br><span class="line">out: <span class="number">15</span></span><br></pre></td></tr></table></figure>
-
+          <img src="/2019/04/23/phash/cat1.jpeg" title="cat">
+          <p>
+            <a href="/2019/04/23/phash/">
+              Read More
+            </a>
+          </p>
         
       </div>
     </div>

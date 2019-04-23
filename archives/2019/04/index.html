@@ -186,11 +186,12 @@
       </div>
       <div class="article-entry">
         
-          <a id="more"></a>
-<h2 id="PSR-matlab计算"><a href="#PSR-matlab计算" class="headerlink" title="PSR matlab计算"></a>PSR matlab计算</h2><p>PSR(Pure Superpixle Ratio):纯净超像素率。计算方法为纯净超像素的个数除以总超像素个数。</p>
-<p><strong>matlab程序如下：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">%input:</span><br><span class="line">%      S：超像素分割的结果</span><br><span class="line">%	   GT：groundtruth图像  图像元素为类标 整数从1开始</span><br><span class="line"></span><br><span class="line">%output:</span><br><span class="line">%		s_error:分类错误的像素数目占超像素总像素数目的比例</span><br><span class="line">%		PSR：纯净超像素个数占总超像素个数的比例</span><br><span class="line">function [s_error,PSR] = getError(S, GT)</span><br><span class="line"></span><br><span class="line">    % check image sizes</span><br><span class="line">    [hS ,wS ,cS] = size(S);</span><br><span class="line">    [hGT,wGT ,cGT] = size(GT);</span><br><span class="line">    if hS~=hGT || wS~= wGT || cS~=1 || cGT~=1</span><br><span class="line">        fprintf(&apos;Size error in getUndersegmentationError\n&apos;);</span><br><span class="line">        return;</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    nS = double(max(S(:))); %超像素的个数</span><br><span class="line">    nGT = double(max(GT(:)));    %GROUNDtruth的类数</span><br><span class="line"></span><br><span class="line">    % prepare intersection matrix: M(i,j) = overlapping of GT==i and S==j</span><br><span class="line">    % prepare areas of segments of S and GT</span><br><span class="line">    areaS = zeros(nS,1); %和超像素个数一样长的向量 </span><br><span class="line">    areaGT = zeros(nGT,1);   %类别*1 </span><br><span class="line">    nps = zeros(nS,1);   %每个超像素中的像素个数</span><br><span class="line">    error = zeros(nS,1); %每个超像素中分类错误的像素数目</span><br><span class="line">    num=0;</span><br><span class="line">   % M = zeros(nGT, nS);</span><br><span class="line">    for i =1:nS</span><br><span class="line">        l=find(S==i);%第i个超像素的索引</span><br><span class="line">        nps(i)=length(l);%第i个超像素内像素个数</span><br><span class="line">        for j =1:nGT</span><br><span class="line">            areaGT(j)=length(find(GT(l)==j));</span><br><span class="line">        end</span><br><span class="line">        if(nps(i)==max(areaGT))</span><br><span class="line">            num = num+1;</span><br><span class="line">        end</span><br><span class="line">        areaS(i)=max(areaGT); </span><br><span class="line">        error(i) = nps(i)-areaS(i);</span><br><span class="line">    end</span><br><span class="line">       s_error=sum(error,&apos;all&apos;)/sum(nps,&apos;all&apos;);</span><br><span class="line">       PSR = num/nS;</span><br></pre></td></tr></table></figure>
-
+          <img src="/2019/04/23/PSR/cat2.jpeg" title="cat">
+          <p>
+            <a href="/2019/04/23/PSR/">
+              Read More
+            </a>
+          </p>
         
       </div>
     </div>
@@ -231,18 +232,12 @@
       </div>
       <div class="article-entry">
         
-          <a id="more"></a>
-<h2 id="phash算法"><a href="#phash算法" class="headerlink" title="phash算法"></a>phash算法</h2><p>pHash的工作过程如下：</p>
-<p>（1）缩小尺寸：pHash以小图片开始，但图片大于8 <em> 8，32 </em> 32是最好的。这样做的目的是简化了DCT的计算，而不是减小频率。</p>
-<p>（2）简化色彩：将图片转化成灰度图像，进一步简化计算量。</p>
-<p>（3）计算DCT：计算图片的DCT变换，得到32 * 32的DCT系数矩阵。</p>
-<p>（4）缩小DCT：虽然DCT的结果是32 <em> 32大小的矩阵，但我们只要保留左上角的8 </em> 8的矩阵，这部分呈现了图片中的最低频率。</p>
-<p>（5）计算平均值：如同均值哈希一样，计算DCT的均值。</p>
-<p>（6）计算hash值：这是最主要的一步，根据8 * 8的DCT矩阵，设置0或1的64位的hash值，大于等于DCT均值的设为”1”，小于DCT均值的设为“0”。组合在一起，就构成了一个64位的整数，这就是这张图片的指纹。</p>
-<p>代码地址：<a href="https://github.com/JohannesBuchner/imagehash" target="_blank" rel="noopener">https://github.com/JohannesBuchner/imagehash</a></p>
-<p><strong>代码示例</strong></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> imagebash</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">hash=imagehash.phash(Image.open(<span class="string">'world1.png'</span>))</span><br><span class="line"><span class="comment"># hash=imagehash.average_hash(Image.open('world1.png')) #均值hash</span></span><br><span class="line"><span class="comment"># hash=imagehash.dhash(Image.open('world1.png')) #dhash</span></span><br><span class="line"><span class="comment"># hash=imagehash.whash(Image.open('world1.png')) #whash</span></span><br><span class="line">otherhash=imagehash.phash(Image.open(<span class="string">'world2.png'</span>))</span><br><span class="line">print(hash-otherhash)</span><br><span class="line">out: <span class="number">15</span></span><br></pre></td></tr></table></figure>
-
+          <img src="/2019/04/23/phash/cat1.jpeg" title="cat">
+          <p>
+            <a href="/2019/04/23/phash/">
+              Read More
+            </a>
+          </p>
         
       </div>
     </div>

@@ -12,18 +12,17 @@
   
 </title>
 
-<meta name="description" content="phash算法pHash的工作过程如下： （1）缩小尺寸：pHash以小图片开始，但图片大于8  8，32  32是最好的。这样做的目的是简化了DCT的计算，而不是减小频率。 （2）简化色彩：将图片转化成灰度图像，进一步简化计算量。 （3）计算DCT：计算图片的DCT变换，得到32 * 32的DCT系数矩阵。 （4）缩小DCT：虽然DCT的结果是32  32大小的矩阵，但我们只要保留左上角的8">
 <meta name="keywords" content="Phash">
 <meta property="og:type" content="article">
 <meta property="og:title" content="phash">
 <meta property="og:url" content="http://yoursite.com/2019/04/23/phash/index.html">
 <meta property="og:site_name" content="韭菜熟了">
-<meta property="og:description" content="phash算法pHash的工作过程如下： （1）缩小尺寸：pHash以小图片开始，但图片大于8  8，32  32是最好的。这样做的目的是简化了DCT的计算，而不是减小频率。 （2）简化色彩：将图片转化成灰度图像，进一步简化计算量。 （3）计算DCT：计算图片的DCT变换，得到32 * 32的DCT系数矩阵。 （4）缩小DCT：虽然DCT的结果是32  32大小的矩阵，但我们只要保留左上角的8">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-23T07:46:51.626Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/phash/cat1.jpeg">
+<meta property="og:updated_time" content="2019-04-23T08:05:53.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="phash">
-<meta name="twitter:description" content="phash算法pHash的工作过程如下： （1）缩小尺寸：pHash以小图片开始，但图片大于8  8，32  32是最好的。这样做的目的是简化了DCT的计算，而不是减小频率。 （2）简化色彩：将图片转化成灰度图像，进一步简化计算量。 （3）计算DCT：计算图片的DCT变换，得到32 * 32的DCT系数矩阵。 （4）缩小DCT：虽然DCT的结果是32  32大小的矩阵，但我们只要保留左上角的8">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/23/phash/cat1.jpeg">
 
 
   <link rel="alternative" href="/atom.xml" title="韭菜熟了" type="application/atom+xml">
@@ -174,8 +173,9 @@
 
   </div>
   <div class="article-entry">
-    <a id="more"></a>
-<h2 id="phash算法"><a href="#phash算法" class="headerlink" title="phash算法"></a>phash算法</h2><p>pHash的工作过程如下：</p>
+    <img src="/2019/04/23/phash/cat1.jpeg" title="cat">
+<a id="more"></a>
+<h2 id="phash算法工作过程和代码"><a href="#phash算法工作过程和代码" class="headerlink" title="phash算法工作过程和代码"></a>phash算法工作过程和代码</h2><p>pHash的工作过程如下：</p>
 <p>（1）缩小尺寸：pHash以小图片开始，但图片大于8 <em> 8，32 </em> 32是最好的。这样做的目的是简化了DCT的计算，而不是减小频率。</p>
 <p>（2）简化色彩：将图片转化成灰度图像，进一步简化计算量。</p>
 <p>（3）计算DCT：计算图片的DCT变换，得到32 * 32的DCT系数矩阵。</p>
