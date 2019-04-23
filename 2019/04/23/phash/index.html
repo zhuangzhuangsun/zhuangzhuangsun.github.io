@@ -8,17 +8,22 @@
 
 <title>
   
-    Archive
+    phash
   
 </title>
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="韭菜熟了">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="phash算法pHash的工作过程如下： （1）缩小尺寸：pHash以小图片开始，但图片大于8  8，32  32是最好的。这样做的目的是简化了DCT的计算，而不是减小频率。 （2）简化色彩：将图片转化成灰度图像，进一步简化计算量。 （3）计算DCT：计算图片的DCT变换，得到32 * 32的DCT系数矩阵。 （4）缩小DCT：虽然DCT的结果是32  32大小的矩阵，但我们只要保留左上角的8">
+<meta name="keywords" content="dhash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="phash">
+<meta property="og:url" content="http://yoursite.com/2019/04/23/phash/index.html">
 <meta property="og:site_name" content="韭菜熟了">
+<meta property="og:description" content="phash算法pHash的工作过程如下： （1）缩小尺寸：pHash以小图片开始，但图片大于8  8，32  32是最好的。这样做的目的是简化了DCT的计算，而不是减小频率。 （2）简化色彩：将图片转化成灰度图像，进一步简化计算量。 （3）计算DCT：计算图片的DCT变换，得到32 * 32的DCT系数矩阵。 （4）缩小DCT：虽然DCT的结果是32  32大小的矩阵，但我们只要保留左上角的8">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-04-23T07:45:16.799Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="韭菜熟了">
+<meta name="twitter:title" content="phash">
+<meta name="twitter:description" content="phash算法pHash的工作过程如下： （1）缩小尺寸：pHash以小图片开始，但图片大于8  8，32  32是最好的。这样做的目的是简化了DCT的计算，而不是减小频率。 （2）简化色彩：将图片转化成灰度图像，进一步简化计算量。 （3）计算DCT：计算图片的DCT变换，得到32 * 32的DCT系数矩阵。 （4）缩小DCT：虽然DCT的结果是32  32大小的矩阵，但我们只要保留左上角的8">
 
 
   <link rel="alternative" href="/atom.xml" title="韭菜熟了" type="application/atom+xml">
@@ -142,51 +147,34 @@
       
         <div style="max-width: 1000px">
       
-          
-
+          <article id="post-phash" class="article article-type-post">
+  
+    <h1 class="article-header">
+      phash
+    </h1>
   
   
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <h1><a href="/archives/2019" class="archive-year">2019</a></h1>
-        </div>
-        <div class="post-list">
-    
-  
 
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/04/23/phash/">
-  phash
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/04/23/phash/"><span class="article-date">
+  <div class="article-info">
+    <span class="article-date">
   2019-04-23
 </span>
-</a>
-        
+
+    
 	<span class="article-category tagcloud">
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/algorithm/">algorithm</a></li></ul>
 	</span>
 
 
-        
+    
 	<span class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dhash/">dhash</a></li></ul>
 	</span>
 
 
-      </div>
-      <div class="article-entry">
-        
-          <a id="more"></a>
+  </div>
+  <div class="article-entry">
+    <a id="more"></a>
 <h2 id="phash算法"><a href="#phash算法" class="headerlink" title="phash算法"></a>phash算法</h2><p>pHash的工作过程如下：</p>
 <p>（1）缩小尺寸：pHash以小图片开始，但图片大于8 <em> 8，32 </em> 32是最好的。这样做的目的是简化了DCT的计算，而不是减小频率。</p>
 <p>（2）简化色彩：将图片转化成灰度图像，进一步简化计算量。</p>
@@ -198,427 +186,34 @@
 <p><strong>代码示例</strong></p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> imagebash</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">hash=imagehash.phash(Image.open(<span class="string">'world1.png'</span>))</span><br><span class="line"><span class="comment"># hash=imagehash.average_hash(Image.open('world1.png')) #均值hash</span></span><br><span class="line"><span class="comment"># hash=imagehash.dhash(Image.open('world1.png')) #dhash</span></span><br><span class="line"><span class="comment"># hash=imagehash.whash(Image.open('world1.png')) #whash</span></span><br><span class="line">otherhash=imagehash.phash(Image.open(<span class="string">'world2.png'</span>))</span><br><span class="line">print(hash-otherhash)</span><br><span class="line">out: <span class="number">15</span></span><br></pre></td></tr></table></figure>
 
-        
-      </div>
-    </div>
-
-  
-
-  
-  
+  </div>
+  <footer class="article-footer">
     
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/04/20/python的类成员方法/">
-  python的类成员方法
-</a>
-
-      </h3>
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.e" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
       
-
-      <div class="article-info">
-        <a href="/2019/04/20/python的类成员方法/"><span class="article-date">
-  2019-04-20
-</span>
-</a>
+          <img src="/images/cc/by.png">
         
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/program-lauguage/">program lauguage</a></li></ul>
-	</span>
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
 
 
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>原作者：haozlee<br>来源：CSDN<br>原文题目：Python 实例方法、类方法和静态方法<br>链接：<a href="https://blog.csdn.net/lihao21/article/details/79762681" target="_blank" rel="noopener">https://blog.csdn.net/lihao21/article/details/79762681</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！<br>
-          </p><p>
-            <a href="/2019/04/20/python的类成员方法/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
     
-  
 
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/04/20/感知哈希算法/">
-  dhash
-</a>
+  </footer>
+</article>
 
-      </h3>
-      
 
-      <div class="article-info">
-        <a href="/2019/04/20/感知哈希算法/"><span class="article-date">
-  2019-04-20
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/algorithm/">algorithm</a></li></ul>
-	</span>
 
 
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dhash/">dhash</a></li></ul>
-	</span>
 
 
-      </div>
-      <div class="article-entry">
-        
-          <p>来源：简书  原作者：AmazingBillions<br>链接：<a href="https://www.jianshu.com/p/193f0089b7a2" target="_blank" rel="noopener">https://www.jianshu.com/p/193f0089b7a2</a><br>
-          </p><p>
-            <a href="/2019/04/20/感知哈希算法/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/04/19/基于对象的编程风格/">
-  基于对象的编程风格
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/04/19/基于对象的编程风格/"><span class="article-date">
-  2019-04-19
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/program-lauguage/">program lauguage</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <img src="/2019/04/19/基于对象的编程风格/fddm6.jpg" title="房东的猫">
-          <p>
-            <a href="/2019/04/19/基于对象的编程风格/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/04/19/环境变量/">
-  环境变量
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/04/19/环境变量/"><span class="article-date">
-  2019-04-19
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/computer-system/">computer system</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <img src="/2019/04/19/环境变量/fddm2.jpg" title="房东的猫">
-          <p>
-            <a href="/2019/04/19/环境变量/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/04/18/系统管理命令/">
-  系统管理命令
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/04/18/系统管理命令/"><span class="article-date">
-  2019-04-18
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/computer-system/">computer system</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <img src="/2019/04/18/系统管理命令/girl5.jpeg" title="西野七濑">
-          <p>
-            <a href="/2019/04/18/系统管理命令/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/04/18/引用和指针的区别/">
-  引用和指针的区别
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/04/18/引用和指针的区别/"><span class="article-date">
-  2019-04-18
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/program-lauguage/">program lauguage</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <img src="/2019/04/18/引用和指针的区别/girl3.jpeg" title="西野七濑">
-          <p>
-            <a href="/2019/04/18/引用和指针的区别/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/04/18/文件系统操作/">
-  文件系统操作
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/04/18/文件系统操作/"><span class="article-date">
-  2019-04-18
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/computer-system/">computer system</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <img src="/2019/04/18/文件系统操作/girl2.jpeg" title="西野七濑">
-          <p>
-            <a href="/2019/04/18/文件系统操作/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/04/17/frist-blog/">
-  frist blog
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/04/17/frist-blog/"><span class="article-date">
-  2019-04-17
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/diary/">diary</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/炮姐-动漫/">-炮姐 -动漫</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <img src="/2019/04/17/frist-blog/bilibili.jpg" title="炮姐">
-<p>  星期三, 17. 四月 2019 12:40下午<br><strong>my fist blog</strong><br><strong><em> mike</em></strong></p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/04/17/hexo-baseic/">
-  hexo基本操作
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/04/17/hexo-baseic/"><span class="article-date">
-  2019-04-17
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">-hexo</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <img src="/2019/04/17/hexo-baseic/girl1.jpeg" title="西野七濑">
-          <p>
-            <a href="/2019/04/17/hexo-baseic/">
-              Read More
-            </a>
-          </p>
-        
-      </div>
-    </div>
-
-  
-
-
-
-
-</div></section>
 
           <div class="main-footer">
   
