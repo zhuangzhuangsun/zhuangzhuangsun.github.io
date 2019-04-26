@@ -8,21 +8,21 @@
 
 <title>
   
-    引用和指针的区别
+    python读取matlab数据
   
 </title>
 
-<meta name="keywords" content="C++">
+<meta name="keywords" content="python,matlab">
 <meta property="og:type" content="article">
-<meta property="og:title" content="引用和指针的区别">
-<meta property="og:url" content="http://yoursite.com/2019/04/18/引用和指针的区别/index.html">
+<meta property="og:title" content="python读取matlab数据">
+<meta property="og:url" content="http://yoursite.com/2019/04/26/python读取matlab数据/index.html">
 <meta property="og:site_name" content="韭菜熟了">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/2019/04/18/引用和指针的区别/girl3.jpeg">
-<meta property="og:updated_time" content="2019-04-18T11:40:43.144Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/python读取matlab数据/cat4.jpg">
+<meta property="og:updated_time" content="2019-04-26T10:12:56.743Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="引用和指针的区别">
-<meta name="twitter:image" content="http://yoursite.com/2019/04/18/引用和指针的区别/girl3.jpeg">
+<meta name="twitter:title" content="python读取matlab数据">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/26/python读取matlab数据/cat4.jpg">
 
 
   <link rel="alternative" href="/atom.xml" title="韭菜熟了" type="application/atom+xml">
@@ -146,17 +146,17 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-引用和指针的区别" class="article article-type-post">
+          <article id="post-python读取matlab数据" class="article article-type-post">
   
     <h1 class="article-header">
-      引用和指针的区别
+      python读取matlab数据
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2019-04-18
+  2019-04-26
 </span>
 
     
@@ -167,24 +167,15 @@
 
     
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/matlab/">matlab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 	</span>
 
 
   </div>
   <div class="article-entry">
-    <img src="/2019/04/18/引用和指针的区别/girl3.jpeg" title="西野七濑">
+    <img src="/2019/04/26/python读取matlab数据/cat4.jpg" title="猫">
 <a id="more"></a>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ival =<span class="number">1024</span>; <span class="comment">//初始化 int类型数据</span></span><br><span class="line"><span class="keyword">int</span> *pi = &amp;ival; <span class="comment">// pointer初始化 pi指向一个int对象</span></span><br><span class="line"><span class="keyword">int</span> &amp;rval = ival; <span class="comment">//reference 引用 代表一个int对象</span></span><br></pre></td></tr></table></figure>
-<p>通过by reference将对象作为函数参数传入时，函数可<strong>直接对传入的对象进行修改</strong>，也可以降低复制大型对象的负担。</p>
-<p>也可以将对象以pointer的形式传递给函数，这与reference效果相同：传递的都是对象的地址，而不是整个对象的副本。两者区别为用法不同。</p>
-<p>point参数和reference参赛之间更重要的差异是：</p>
-<ul>
-<li><strong>pointer可能（也可能不）指向某个实际对象，当我们提领pointer时，一定要确定其值非0，而reference则必定会指向某个对象（不为null），所以不必作此检查</strong></li>
-<li><strong>引用被创建的同时必须被初始化（指针则可以在任何时候被初始化）</strong> </li>
-<li><strong>一旦引用被初始化，就不能改变引用的关系，即不能再指向其他对象（指针则可以随时改变所指的对象）</strong></li>
-</ul>
-
+<h2 id="使用-scipy-io-在python读取Matlab中-mat数据方法"><a href="#使用-scipy-io-在python读取Matlab中-mat数据方法" class="headerlink" title="使用 scipy.io 在python读取Matlab中.mat数据方法"></a>使用 scipy.io 在python读取Matlab中.mat数据方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy.io</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">f = scipy.io.loadmat(<span class="string">'T.mat'</span>)<span class="comment">#T.mat在工作目录中</span></span><br><span class="line"></span><br><span class="line">print(type(f))</span><br><span class="line">out:&lt;<span class="class"><span class="keyword">class</span> '<span class="title">dict</span>'&gt; #<span class="title">f</span>的数据类型为字典类型</span></span><br><span class="line"><span class="class"></span></span><br><span class="line">data=f['T'] #文件名T为字典的Key 通过key来获得了数据</span><br><span class="line"></span><br><span class="line">type(data) <span class="comment">#data的数据类型为ndarray</span></span><br><span class="line">out:numpy.ndarray</span><br><span class="line">    </span><br><span class="line">data.shape </span><br><span class="line">out:<span class="number">1300</span>*<span class="number">1200</span></span><br><span class="line">    </span><br><span class="line">data.size</span><br><span class="line">out:<span class="number">156000</span></span><br></pre></td></tr></table></figure>
   </div>
   <footer class="article-footer">
     
