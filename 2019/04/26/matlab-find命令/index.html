@@ -12,14 +12,18 @@
   
 </title>
 
+<meta name="description" content="matlab的find 和 sizematlab的一些小tip 1，索引从1开始。 2，没有python中  x.方法  的用法 3，矩阵 数组 的索引都用小括号() 1234567891011121314151617181920212223242526272829303132333435363738%find - Find indices and values of nonzero elem">
+<meta name="keywords" content="matalb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="matlab_find命令">
 <meta property="og:url" content="http://yoursite.com/2019/04/26/matlab-find命令/index.html">
 <meta property="og:site_name" content="韭菜熟了">
+<meta property="og:description" content="matlab的find 和 sizematlab的一些小tip 1，索引从1开始。 2，没有python中  x.方法  的用法 3，矩阵 数组 的索引都用小括号() 1234567891011121314151617181920212223242526272829303132333435363738%find - Find indices and values of nonzero elem">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-26T10:08:20.667Z">
+<meta property="og:updated_time" content="2019-04-26T10:21:46.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="matlab_find命令">
+<meta name="twitter:description" content="matlab的find 和 sizematlab的一些小tip 1，索引从1开始。 2，没有python中  x.方法  的用法 3，矩阵 数组 的索引都用小括号() 1234567891011121314151617181920212223242526272829303132333435363738%find - Find indices and values of nonzero elem">
 
 
   <link rel="alternative" href="/atom.xml" title="韭菜熟了" type="application/atom+xml">
@@ -77,14 +81,14 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/computer-system/">computer system</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/diary/">diary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/program-lauguage/">program lauguage</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/computer-system/">computer system</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/diary/">diary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/program-lauguage/">program lauguage</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
                 <a href="javascript:;">Tag</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">-hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/炮姐-动漫/">-炮姐 -动漫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Phash/">Phash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SAR/">SAR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dhash/">dhash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/superpixel/">superpixel</a><span class="tag-list-count">1</span></li></ul>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">-hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/炮姐-动漫/">-炮姐 -动漫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Phash/">Phash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SAR/">SAR</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dhash/">dhash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matalb/">matalb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/numpy/">numpy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/superpixel/">superpixel</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
@@ -157,12 +161,30 @@
 </span>
 
     
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/program-lauguage/">program lauguage</a></li></ul>
+	</span>
+
 
     
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/matalb/">matalb</a></li></ul>
+	</span>
+
 
   </div>
   <div class="article-entry">
     
+<a id="more"></a>
+<h2 id="matlab的find-和-size"><a href="#matlab的find-和-size" class="headerlink" title="matlab的find 和 size"></a>matlab的find 和 size</h2><p>matlab的一些小tip</p>
+<p>1，索引从1开始。</p>
+<p>2，没有python中  x.方法  的用法</p>
+<p>3，矩阵 数组 的索引都用小括号()</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%find - Find indices and values of nonzero elements</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%    This MATLAB function returns a vector containing the linear indices of    %    each nonzero element in array X.</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%    k = find(X)</span></span><br><span class="line"><span class="comment">%    k = find(X,n)</span></span><br><span class="line"><span class="comment">%    k = find(X,n,direction)</span></span><br><span class="line"><span class="comment">%    [row,col] = find(___)</span></span><br><span class="line"><span class="comment">%    [row,col,v] = find(___)</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;x=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line">x =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span></span><br><span class="line">&gt;&gt;y=<span class="built_in">find</span>(x==<span class="number">1</span>)</span><br><span class="line">y =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">4</span></span><br><span class="line">&gt;&gt;x(y)</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">1</span></span><br><span class="line">&gt;&gt;B=<span class="built_in">reshape</span>(x,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">B =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">3</span>     <span class="number">2</span></span><br><span class="line">     <span class="number">2</span>     <span class="number">1</span>     <span class="number">3</span></span><br><span class="line">&gt;&gt; [row,col]=<span class="built_in">find</span>(B==<span class="number">1</span>)</span><br><span class="line">row =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span></span><br><span class="line">     <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">col =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span></span><br><span class="line">     <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p><strong>size</strong></p>
+<p>This MATLAB function returns a row vector whose elements contain the length of<br> the corresponding dimension of A.</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sz = <span class="built_in">size</span>(A)</span><br><span class="line">szdim = <span class="built_in">size</span>(A,dim)</span><br><span class="line">[m,n] = <span class="built_in">size</span>(A)</span><br><span class="line">[sz1,...,szN] = <span class="built_in">size</span>(A)</span><br></pre></td></tr></table></figure>
+
   </div>
   <footer class="article-footer">
     
