@@ -19,7 +19,9 @@
 <meta property="og:site_name" content="韭菜熟了">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/2019/04/26/协方差矩阵/dog3.jpg">
-<meta property="og:updated_time" content="2019-04-26T10:41:38.968Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/协方差矩阵/imgs/20190426-190437.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/协方差矩阵/imgs/20190426-190516.png">
+<meta property="og:updated_time" content="2019-04-26T11:05:26.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="协方差矩阵">
 <meta name="twitter:image" content="http://yoursite.com/2019/04/26/协方差矩阵/dog3.jpg">
@@ -176,10 +178,11 @@
     <img src="/2019/04/26/协方差矩阵/dog3.jpg" title="cat">
 <a id="more"></a>
 <h2 id="covariance-matrice"><a href="#covariance-matrice" class="headerlink" title="covariance matrice"></a>covariance matrice</h2><p>来自维基百科</p>
-<p>假设X是以n个随机变量组成的列向量：<br>$$<br>{\displaystyle \mathbf {X} ={\begin{bmatrix}X_{1}\X_{2}\\vdots \X_{n}\end{bmatrix}}}<br>$$<br>且<br>$$<br>mu_i = \mathrm{E}(X_i),<br>$$</p>
+<p>假设X是以n个随机变量组成的列向量：</p>
+<p><img src="imgs/20190426-190437.png" alt><br>且<br>$$<br>mu_i = \mathrm{E}(X_i),<br>$$</p>
 <p>μi是Xi的期望。</p>
 <p>协方差矩阵的第(i,j)项被定义为如下形式。<br>$$<br>\Sigma _{ij}=cov(X_i,X_j)=E[(X_i-\mu_i)(X_j-\mu_j)]<br>$$</p>
-<p>协方差矩阵为：<br>$$<br>\begin{bmatrix}  \mathrm{E}[(X_1 - \mu_1)(X_1 - \mu_1)] &amp; \mathrm{E}[(X_1 - \mu_1)(X_2 - \mu_2)] &amp; \cdots &amp; \mathrm{E}[(X_1 - \mu_1)(X_n - \mu_n)] \ \  \mathrm{E}[(X_2 - \mu_2)(X_1 - \mu_1)] &amp; \mathrm{E}[(X_2 - \mu_2)(X_2 - \mu_2)] &amp; \cdots &amp; \mathrm{E}[(X_2 - \mu_2)(X_n - \mu_n)] \ \  \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ \  \mathrm{E}[(X_n - \mu_n)(X_1 - \mu_1)] &amp; \mathrm{E}[(X_n - \mu_n)(X_2 - \mu_2)] &amp; \cdots &amp; \mathrm{E}[(X_n - \mu_n)(X_n - \mu_n)] \end{bmatrix}<br>$$<br>尽管协方差矩阵很简单，可它却是很多领域里的非常有力的工具。它能导出一个<a href="https://zh.wikipedia.org/wiki/变换矩阵" target="_blank" rel="noopener">变换矩阵</a>，这个矩阵能使数据完全去相关(decorrelation)。从不同的角度看，也就是说能够找出一组最佳的基以紧凑的方式来表达数据。(完整的证明请参考<a href="https://zh.wikipedia.org/w/index.php?title=瑞利商&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">瑞利商</a>)。 这个方法在统计学中被称为<a href="https://zh.wikipedia.org/wiki/主成分分析" target="_blank" rel="noopener">主成分分析</a>(principal components analysis)，在图像处理中称为Karhunen-Loève 变换(KL-变换)。</p>
+<p>协方差矩阵为：<br><img src="imgs/20190426-190516.png" alt><br>尽管协方差矩阵很简单，可它却是很多领域里的非常有力的工具。它能导出一个<a href="https://zh.wikipedia.org/wiki/变换矩阵" target="_blank" rel="noopener">变换矩阵</a>，这个矩阵能使数据完全去相关(decorrelation)。从不同的角度看，也就是说能够找出一组最佳的基以紧凑的方式来表达数据。(完整的证明请参考<a href="https://zh.wikipedia.org/w/index.php?title=瑞利商&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">瑞利商</a>)。 这个方法在统计学中被称为<a href="https://zh.wikipedia.org/wiki/主成分分析" target="_blank" rel="noopener">主成分分析</a>(principal components analysis)，在图像处理中称为Karhunen-Loève 变换(KL-变换)。</p>
 <p><strong>协方差矩阵python实现</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">impotr numpy</span><br><span class="line">x = np.random.random_sample((<span class="number">3</span>, <span class="number">2</span>))</span><br><span class="line">cov=np.cov(x)</span><br><span class="line">print(cov)</span><br></pre></td></tr></table></figure>
 
