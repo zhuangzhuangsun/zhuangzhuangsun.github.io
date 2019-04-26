@@ -322,10 +322,12 @@
       </div>
       <div class="article-entry">
         
-          
-<a id="more"></a>
-<h2 id="numpy的布尔值索引"><a href="#numpy的布尔值索引" class="headerlink" title="numpy的布尔值索引"></a>numpy的布尔值索引</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mumpy <span class="keyword">as</span> np</span><br><span class="line">A=np.array([<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>])</span><br><span class="line">print(<span class="string">'A='</span>,A)</span><br><span class="line">print(<span class="string">'shape of A:'</span>,A.shape)</span><br><span class="line">A.resize(<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line">print(<span class="string">'A='</span>,A)</span><br><span class="line">print(<span class="string">'shape of A:'</span>,A.shape)</span><br><span class="line">x=(A[<span class="number">0</span>,:]==<span class="number">1</span>)</span><br><span class="line">print(<span class="string">'x='</span>,x)</span><br><span class="line">print(<span class="string">'A[1,x]='</span>,A[<span class="number">1</span>,x])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">out:</span><br><span class="line">A= [<span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">3</span> <span class="number">3</span> <span class="number">4</span> <span class="number">4</span>]</span><br><span class="line">shape of A: (<span class="number">8</span>,)</span><br><span class="line">A= [[<span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span>]</span><br><span class="line"> [<span class="number">3</span> <span class="number">3</span> <span class="number">4</span> <span class="number">4</span>]]</span><br><span class="line">shape of A: (<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">x= [ <span class="literal">True</span>  <span class="literal">True</span> <span class="literal">False</span> <span class="literal">False</span>]</span><br><span class="line">A[<span class="number">1</span>,x]= [<span class="number">3</span> <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-
+          <img src="/2019/04/26/numpy的布尔值索引/dog1.jpeg" title="dog">
+          <p>
+            <a href="/2019/04/26/numpy的布尔值索引/">
+              Read More
+            </a>
+          </p>
         
       </div>
     </div>
@@ -368,17 +370,12 @@
       </div>
       <div class="article-entry">
         
-          
-<a id="more"></a>
-<h2 id="matlab的find-和-size"><a href="#matlab的find-和-size" class="headerlink" title="matlab的find 和 size"></a>matlab的find 和 size</h2><p>matlab的一些小tip</p>
-<p>1，索引从1开始。</p>
-<p>2，没有python中  x.方法  的用法</p>
-<p>3，矩阵 数组 的索引都用小括号()</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%find - Find indices and values of nonzero elements</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%    This MATLAB function returns a vector containing the linear indices of    %    each nonzero element in array X.</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%    k = find(X)</span></span><br><span class="line"><span class="comment">%    k = find(X,n)</span></span><br><span class="line"><span class="comment">%    k = find(X,n,direction)</span></span><br><span class="line"><span class="comment">%    [row,col] = find(___)</span></span><br><span class="line"><span class="comment">%    [row,col,v] = find(___)</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;x=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line">x =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span></span><br><span class="line">&gt;&gt;y=<span class="built_in">find</span>(x==<span class="number">1</span>)</span><br><span class="line">y =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">4</span></span><br><span class="line">&gt;&gt;x(y)</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">1</span></span><br><span class="line">&gt;&gt;B=<span class="built_in">reshape</span>(x,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">B =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">3</span>     <span class="number">2</span></span><br><span class="line">     <span class="number">2</span>     <span class="number">1</span>     <span class="number">3</span></span><br><span class="line">&gt;&gt; [row,col]=<span class="built_in">find</span>(B==<span class="number">1</span>)</span><br><span class="line">row =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span></span><br><span class="line">     <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">col =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span></span><br><span class="line">     <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<p><strong>size</strong></p>
-<p>This MATLAB function returns a row vector whose elements contain the length of<br> the corresponding dimension of A.</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sz = <span class="built_in">size</span>(A)</span><br><span class="line">szdim = <span class="built_in">size</span>(A,dim)</span><br><span class="line">[m,n] = <span class="built_in">size</span>(A)</span><br><span class="line">[sz1,...,szN] = <span class="built_in">size</span>(A)</span><br></pre></td></tr></table></figure>
-
+          <img src="/2019/04/26/matlab-find命令/dog2.jpg" title="cat">
+          <p>
+            <a href="/2019/04/26/matlab-find命令/">
+              Read More
+            </a>
+          </p>
         
       </div>
     </div>
@@ -421,16 +418,12 @@
       </div>
       <div class="article-entry">
         
-          
-<a id="more"></a>
-<h2 id="covariance-matrice"><a href="#covariance-matrice" class="headerlink" title="covariance matrice"></a>covariance matrice</h2><p>来自维基百科</p>
-<p>假设X是以n个随机变量组成的列向量：<br>$$<br>{\displaystyle \mathbf {X} ={\begin{bmatrix}X_{1}\X_{2}\\vdots \X_{n}\end{bmatrix}}}<br>$$<br>且<br>$$<br>mu_i = \mathrm{E}(X_i),<br>$$</p>
-<p>μi是Xi的期望。</p>
-<p>协方差矩阵的第(i,j)项被定义为如下形式。<br>$$<br>\Sigma _{ij}=cov(X_i,X_j)=E[(X_i-\mu_i)(X_j-\mu_j)]<br>$$</p>
-<p>协方差矩阵为：<br>$$<br>\begin{bmatrix}  \mathrm{E}[(X_1 - \mu_1)(X_1 - \mu_1)] &amp; \mathrm{E}[(X_1 - \mu_1)(X_2 - \mu_2)] &amp; \cdots &amp; \mathrm{E}[(X_1 - \mu_1)(X_n - \mu_n)] \ \  \mathrm{E}[(X_2 - \mu_2)(X_1 - \mu_1)] &amp; \mathrm{E}[(X_2 - \mu_2)(X_2 - \mu_2)] &amp; \cdots &amp; \mathrm{E}[(X_2 - \mu_2)(X_n - \mu_n)] \ \  \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ \  \mathrm{E}[(X_n - \mu_n)(X_1 - \mu_1)] &amp; \mathrm{E}[(X_n - \mu_n)(X_2 - \mu_2)] &amp; \cdots &amp; \mathrm{E}[(X_n - \mu_n)(X_n - \mu_n)] \end{bmatrix}<br>$$<br>尽管协方差矩阵很简单，可它却是很多领域里的非常有力的工具。它能导出一个<a href="https://zh.wikipedia.org/wiki/变换矩阵" target="_blank" rel="noopener">变换矩阵</a>，这个矩阵能使数据完全去相关(decorrelation)。从不同的角度看，也就是说能够找出一组最佳的基以紧凑的方式来表达数据。(完整的证明请参考<a href="https://zh.wikipedia.org/w/index.php?title=瑞利商&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">瑞利商</a>)。 这个方法在统计学中被称为<a href="https://zh.wikipedia.org/wiki/主成分分析" target="_blank" rel="noopener">主成分分析</a>(principal components analysis)，在图像处理中称为Karhunen-Loève 变换(KL-变换)。</p>
-<p><strong>协方差矩阵python实现</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">impotr numpy</span><br><span class="line">x = np.random.random_sample((<span class="number">3</span>, <span class="number">2</span>))</span><br><span class="line">cov=np.cov(x)</span><br><span class="line">print(cov)</span><br></pre></td></tr></table></figure>
-
+          <img src="/2019/04/26/协方差矩阵/dog3.jpg" title="cat">
+          <p>
+            <a href="/2019/04/26/协方差矩阵/">
+              Read More
+            </a>
+          </p>
         
       </div>
     </div>
