@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="韭菜熟了">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/2019/04/27/linux包管理系统/dog4.jpg">
-<meta property="og:updated_time" content="2019-04-27T03:47:36.524Z">
+<meta property="og:updated_time" content="2019-04-27T04:32:27.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux包管理系统">
 <meta name="twitter:image" content="http://yoursite.com/2019/04/27/linux包管理系统/dog4.jpg">
@@ -194,6 +194,11 @@
 <p>每个包名字前都有一个p或i，如果看到i说明这个包已经安装到我们的系统上了。p或v，说明这个包可用但是还没有安装。</p>
 <p>接着安装这个包<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo aptitude install package_name</span><br></pre></td></tr></table></figure></p>
 <p>要检查安装是否成功，再次使用search命令就可以了，会看到安装的包前有一个i说明安装成功。</p>
+<p><strong>用aptitude更新软件</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo aptitude safe-upgrade</span><br></pre></td></tr></table></figure></p>
+<p>该命令会将所有已安装的包更新到软件库最新版本</p>
+<p><strong>用aptitude卸载软件</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo aptitude purge package_name#删除软件包及相关数据和配置文件</span><br><span class="line">sudo aptitude remove package_name#只删除软件包而保留相关数据和配置文件</span><br></pre></td></tr></table></figure></p>
+<p>要看软件包是否被删除 可以再看aptitude的search选项，如果在软件包前看见一个c，意味着已经被删除但配置文件尚未删除，如果前面为p，说明配置文件也已经删除。</p>
+<p><strong>aptitude仓库</strong><br>aptitude默认的软件仓库位置是在安装linux发行版时候设置的，具体存储位置在<br>/ect/apt/sources.list中。<br>    aptitude只会从这些仓库中下载文件，搜索软件进行安装或更新时，也只会检查这些库，如果需要为PMS添加一些额外的软件仓库，可以在这个文件中设置。</p>
 <h4 id="基于Red-Hat的系统"><a href="#基于Red-Hat的系统" class="headerlink" title="基于Red Hat的系统"></a>基于Red Hat的系统</h4>
   </div>
   <footer class="article-footer">
