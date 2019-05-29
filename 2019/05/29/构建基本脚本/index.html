@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    构建基本脚本
+  
+</title>
+
+<meta name="keywords" content="linux,shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="构建基本脚本">
+<meta property="og:url" content="http://yoursite.com/2019/05/29/构建基本脚本/index.html">
+<meta property="og:site_name" content="韭菜熟了">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2019/05/29/构建基本脚本/dog6.jpg">
+<meta property="og:updated_time" content="2019-05-29T14:30:36.151Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="构建基本脚本">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/29/构建基本脚本/dog6.jpg">
+
+
+  <link rel="alternative" href="/atom.xml" title="韭菜熟了" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body>
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">韭菜熟了</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">韭菜熟了</a></h1>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+          <div class="author">mike</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="www.zzzszzz.xyz"><img src="https://i.loli.net/2019/04/17/5cb6ab0c2a104.jpeg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/computer-system/">computer system</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/diary/">diary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/program-lauguage/">program lauguage</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">-hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/炮姐-动漫/">-炮姐 -动漫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Phash/">Phash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SAR/">SAR</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dhash/">dhash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matalb/">matalb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/numpy/">numpy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/superpixel/">superpixel</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">20</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/denjones/hexo-theme-chan" title="Chan" target="_blank" rel="noopener">Chan</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/zhuangzhuangsun" title="Github" target="_blank" rel="noopener">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/atom.xml" title="RSS">RSS</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-构建基本脚本" class="article article-type-post">
+  
+    <h1 class="article-header">
+      构建基本脚本
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2019-05-29
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/computer-system/">computer system</a></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <img src="/2019/05/29/构建基本脚本/dog6.jpg" title="dog">
+<a id="more"></a>
+<h2 id="使用多个命令"><a href="#使用多个命令" class="headerlink" title="使用多个命令"></a>使用多个命令</h2><p>如果要两个命令一起运行，可以将它们放在同一行，中间使用分号隔开<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ date;who</span><br></pre></td></tr></table></figure></p>
+<h2 id="创建shell脚本"><a href="#创建shell脚本" class="headerlink" title="创建shell脚本"></a>创建shell脚本</h2><p>创建shell脚本文件时，必须在第一行指定要使用的shell。其格式为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br></pre></td></tr></table></figure></p>
+<p>通常在shell脚本中，井号用作注释行<br>在指定shell后，就可以在每一行输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># this script displays the data and who is logged on</span><br><span class="line">data</span><br><span class="line">who</span><br></pre></td></tr></table></figure></p>
+<p>将这个脚本存储为test1的文件中，运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ./test1</span><br><span class="line">bash: ./test1:Permission denied</span><br></pre></td></tr></table></figure></p>
+<p>shell指明了没有执行文件的权限。查看一下文件权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ls -l test1</span><br><span class="line">-rw-r--r-- 1 mike mike 75 5月  29 20:43 text1</span><br><span class="line">$</span><br></pre></td></tr></table></figure></p>
+<p>通过chmod命令赋予文件属主执行文件的权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$chmod u+x test1</span><br><span class="line">$./test1</span><br><span class="line">2019年 05月 29日 星期三 20:51:42 CST</span><br><span class="line">mike     :0           2019-05-29 20:18 (:0)</span><br></pre></td></tr></table></figure></p>
+<h2 id="显示消息"><a href="#显示消息" class="headerlink" title="显示消息"></a>显示消息</h2><p>通过echo命令，将脚本输出显示在控制台上<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$echo</span> This is a <span class="built_in">test</span></span><br><span class="line">This is a <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#有引号的情况</span></span><br><span class="line"><span class="variable">$echo</span> <span class="string">"let's see if this'll work"</span></span><br><span class="line"><span class="built_in">let</span><span class="string">'s see if this'</span>ll work</span><br><span class="line"></span><br><span class="line"><span class="variable">$echo</span> <span class="string">'Rich says "scripting is easy".'</span></span><br><span class="line">Rich says <span class="string">"scripting is easy"</span>.</span><br><span class="line"></span><br><span class="line"><span class="comment">#如果想要将文本字符串和命令输出显示在同一行中，应使用echo命令的-n参数</span></span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> The time and data are:</span><br><span class="line">date</span><br><span class="line"></span><br><span class="line"><span class="comment">#该脚本运行结果为</span></span><br><span class="line">The time and date are:2019-05-29 20:18 (:0)</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h2><p><strong> 环境变量 </strong><br>可以在环境变量名称之前加上美元符号($)来使用这些美元符号<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"User info for userid: <span class="variable">$USER</span>"</span></span><br><span class="line"><span class="built_in">echo</span> UID: <span class="variable">$UID</span></span><br><span class="line"><span class="built_in">echo</span> HOME: <span class="variable">$HOME</span></span><br></pre></td></tr></table></figure></p>
+<p>脚本输出如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$chmod</span> u+x test2</span><br><span class="line">$./test2</span><br><span class="line">User info <span class="keyword">for</span> userid:mike</span><br><span class="line">UID:1001</span><br><span class="line">HOME:/home/mike</span><br></pre></td></tr></table></figure></p>
+<p>如果要在脚本中使用美元符号 则要前面加上一个反斜线<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'the cost of the item is /$15'</span></span><br><span class="line">the cost of the item is <span class="variable">$15</span></span><br></pre></td></tr></table></figure></p>
+<p><strong> 用户变量 </strong><br>shell允许在脚本中定义和使用自己的变量。用户变量可以由任何字母，数字和下划线组成，长度不超过20。区分大小写。<br>用等号将值赋给用户变量。在变量，等号，和值之间不能出现空格。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$vim</span> test2</span><br><span class="line"></span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#assigning a variable value to anther variable</span></span><br><span class="line"></span><br><span class="line">value1=10</span><br><span class="line">value2=<span class="variable">$value2</span></span><br><span class="line">string1=“hello”</span><br><span class="line">string2=<span class="variable">$string1</span></span><br></pre></td></tr></table></figure></p>
+<p><strong> 命令替换 </strong><br>将命令输出信息赋给变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#两种方法</span></span><br><span class="line">testing=`date` <span class="comment">#`为反引号  位于tab上方</span></span><br><span class="line">testing=$(date)</span><br></pre></td></tr></table></figure></p>
+<h2 id="输入和输出重定向"><a href="#输入和输出重定向" class="headerlink" title="输入和输出重定向"></a>输入和输出重定向</h2><p><strong> 输出重定向 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">command</span>&gt;outputfile <span class="comment">#命令输出保存到指定输出文件中</span></span><br><span class="line"><span class="built_in">command</span>&gt;&gt;outputfile<span class="comment">#命令输出追加在已有文件中</span></span><br></pre></td></tr></table></figure></p>
+<p><strong> 输入重定向 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">command</span>&lt;inputfile</span><br><span class="line"><span class="built_in">command</span>&lt;&lt;marker</span><br></pre></td></tr></table></figure></p>
+<h2 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h2><p>将命令输出重定向到另一个命令中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command1|command2</span><br></pre></td></tr></table></figure></p>
+<h2 id="退出脚本"><a href="#退出脚本" class="headerlink" title="退出脚本"></a>退出脚本</h2><p>linux提供了一个专门的变量$? 来保存上个已执行命令的推出状态码<br>按照惯例一个成功结束的命令的推出状态码是0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">echo $?</span><br><span class="line">#查看上条命令的退出状态码</span><br><span class="line"></span><br><span class="line">exit var1 </span><br><span class="line">#使用var1的值作为退出状态码</span><br></pre></td></tr></table></figure></p>
+<p>默认情况下 shell脚本会以脚本中最后一个命令的退回状态码退出。<br>可以使用exit命令在脚本结束时指定一个退回状态码 退出状态玛为一个0~255的整数。</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.e" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2019 韭菜熟了 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>
