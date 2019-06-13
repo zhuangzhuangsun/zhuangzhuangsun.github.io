@@ -12,18 +12,18 @@
   
 </title>
 
-<meta name="description" content="关于python的引用 python不允许程序员选择传值还是传引用。python参数传递参用的肯定是“传对象引用”的方式。如果函数收到的是一个可变对象(字典或者列表)的引用，就可以修改对象的原始值，若为不可变对象(如元组或者字符)，则不可直接修改对象。 当复制列表或者字典时，就复制了对象列表的引用，如果改变引用的值，则修改了原始的参数。 为了简化内存管理，Python通过引用计数器的方式实现垃圾自">
+<meta name="description" content="python不允许程序员选择传值还是传引用。python参数传递参用的肯定是“传对象引用”的方式。如果函数收到的是一个可变对象(字典或者列表)的引用，就可以修改对象的原始值，若为不可变对象(如元组或者字符)，则不可直接修改对象。 当复制列表或者字典时，就复制了对象列表的引用，如果改变引用的值，则修改了原始的参数。 为了简化内存管理，Python通过引用计数器的方式实现垃圾自动回收。Python对">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于python的引用">
 <meta property="og:url" content="http://yoursite.com/2019/06/13/关于python的引用/index.html">
 <meta property="og:site_name" content="韭菜熟了">
-<meta property="og:description" content="关于python的引用 python不允许程序员选择传值还是传引用。python参数传递参用的肯定是“传对象引用”的方式。如果函数收到的是一个可变对象(字典或者列表)的引用，就可以修改对象的原始值，若为不可变对象(如元组或者字符)，则不可直接修改对象。 当复制列表或者字典时，就复制了对象列表的引用，如果改变引用的值，则修改了原始的参数。 为了简化内存管理，Python通过引用计数器的方式实现垃圾自">
+<meta property="og:description" content="python不允许程序员选择传值还是传引用。python参数传递参用的肯定是“传对象引用”的方式。如果函数收到的是一个可变对象(字典或者列表)的引用，就可以修改对象的原始值，若为不可变对象(如元组或者字符)，则不可直接修改对象。 当复制列表或者字典时，就复制了对象列表的引用，如果改变引用的值，则修改了原始的参数。 为了简化内存管理，Python通过引用计数器的方式实现垃圾自动回收。Python对">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-06-13T12:52:57.595Z">
+<meta property="og:updated_time" content="2019-06-13T12:54:19.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于python的引用">
-<meta name="twitter:description" content="关于python的引用 python不允许程序员选择传值还是传引用。python参数传递参用的肯定是“传对象引用”的方式。如果函数收到的是一个可变对象(字典或者列表)的引用，就可以修改对象的原始值，若为不可变对象(如元组或者字符)，则不可直接修改对象。 当复制列表或者字典时，就复制了对象列表的引用，如果改变引用的值，则修改了原始的参数。 为了简化内存管理，Python通过引用计数器的方式实现垃圾自">
+<meta name="twitter:description" content="python不允许程序员选择传值还是传引用。python参数传递参用的肯定是“传对象引用”的方式。如果函数收到的是一个可变对象(字典或者列表)的引用，就可以修改对象的原始值，若为不可变对象(如元组或者字符)，则不可直接修改对象。 当复制列表或者字典时，就复制了对象列表的引用，如果改变引用的值，则修改了原始的参数。 为了简化内存管理，Python通过引用计数器的方式实现垃圾自动回收。Python对">
 
 
   <link rel="alternative" href="/atom.xml" title="韭菜熟了" type="application/atom+xml">
@@ -174,7 +174,7 @@
 
   </div>
   <div class="article-entry">
-    <h2 id="关于python的引用"><a href="#关于python的引用" class="headerlink" title="关于python的引用"></a>关于python的引用</h2><ol>
+    <ol>
 <li>python不允许程序员选择传值还是传引用。python参数传递参用的肯定是“传对象引用”的方式。如果函数收到的是一个可变对象(字典或者列表)的引用，就可以修改对象的原始值，若为不可变对象(如元组或者字符)，则不可直接修改对象。</li>
 <li>当复制列表或者字典时，就复制了对象列表的引用，如果改变引用的值，则修改了原始的参数。</li>
 <li>为了简化内存管理，Python通过引用计数器的方式实现垃圾自动回收。Python对每个对象都有一个引用计数，每当其被引用一次，计数值就会加一，每销毁一次Python对象，计数值就会减一，当计数值为零时，才从内存中删除Python对象。<a id="more"></a>
