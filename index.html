@@ -178,17 +178,12 @@
       </div>
       <div class="article-entry">
         
-          
-<a id="more"></a>
-<p>python程序是从上而下逐行运行的，在.py文件中，除了def后定义函数外的代码都会被认为是“main”方法中的内容从上而下执行。如果只是写”hello world”，不想写函数的话，仅仅是print(‘hello world’)就可以，这就是一个“程序”，不需要所谓的“main”方法入口。当然如果是测试函数功能就需要在.py文件中写上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if __name__ == &quot;__main__&quot;</span><br></pre></td></tr></table></figure>
-<p>再调用函数。比如如下hello.py文件：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"first"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sayHello</span><span class="params">()</span>:</span></span><br><span class="line">    str = <span class="string">"hello"</span></span><br><span class="line">    print(str);</span><br><span class="line">    print(__name__+<span class="string">'from hello.sayhello()'</span>) </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">'This is main of module "hello.py"'</span>)</span><br><span class="line">    sayHello()</span><br><span class="line">    print(__name__+<span class="string">'from hello.main'</span>)</span><br></pre></td></tr></table></figure>
-<p>运行结果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">first</span><br><span class="line">This <span class="keyword">is</span> main of module <span class="string">"hello.py"</span></span><br><span class="line">hello</span><br><span class="line">__main__ <span class="keyword">from</span> hello.sayhello()</span><br><span class="line">__main__ <span class="keyword">from</span> hello.main</span><br></pre></td></tr></table></figure>
-<p>先执行的第一行print再执行“入口”中的东西</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__name__其实是一个内置属性，指示当前py文件调用方式的方法。</span><br><span class="line">当某个py文件被执行时，该py文件的__name__属性，值都是__main__,当py文件作为模块被导入到另一个.py文件中（即<span class="keyword">import</span>）比如说hell.py文件被导入到world.py中，运行world.py，此时hello.py中的__name__属性就会变成hello，所谓的入口因为<span class="keyword">if</span>判断失败就不执行了</span><br><span class="line"></span><br><span class="line">所以<span class="keyword">if</span>语句的判断成功虚拟了一个main（）方法。</span><br></pre></td></tr></table></figure>
-
+          <img src="/2019/07/29/python中main的用法/mami1.jpg" title="mami">
+          <p>
+            <a href="/2019/07/29/python中main的用法/">
+              Read More
+            </a>
+          </p>
         
       </div>
     </div>
