@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    tensorboard队列和线程
+  
+</title>
+
+<meta name="description" content="队列和线程队列Tensorflow中的队列(queue)本身也是图中的一个节点，是一种有状态的节点，其他节点，如入队节点(enqueue)和出队节点(dequeue)都可以修改它的内容。入队节点可以把新元素插入到队列末尾，出队节点可以把队列前面的元素删除。 Tensorflow中主要有两种队列，即FIFOQueue和RandomShuffleQueue。  FIFOQueue FIFOQueue创">
+<meta name="keywords" content="tensorflow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tensorboard队列和线程">
+<meta property="og:url" content="http://yoursite.com/2019/07/29/tensorboard队列和线程/index.html">
+<meta property="og:site_name" content="韭菜熟了">
+<meta property="og:description" content="队列和线程队列Tensorflow中的队列(queue)本身也是图中的一个节点，是一种有状态的节点，其他节点，如入队节点(enqueue)和出队节点(dequeue)都可以修改它的内容。入队节点可以把新元素插入到队列末尾，出队节点可以把队列前面的元素删除。 Tensorflow中主要有两种队列，即FIFOQueue和RandomShuffleQueue。  FIFOQueue FIFOQueue创">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-07-29T04:59:46.829Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tensorboard队列和线程">
+<meta name="twitter:description" content="队列和线程队列Tensorflow中的队列(queue)本身也是图中的一个节点，是一种有状态的节点，其他节点，如入队节点(enqueue)和出队节点(dequeue)都可以修改它的内容。入队节点可以把新元素插入到队列末尾，出队节点可以把队列前面的元素删除。 Tensorflow中主要有两种队列，即FIFOQueue和RandomShuffleQueue。  FIFOQueue FIFOQueue创">
+
+
+  <link rel="alternative" href="/atom.xml" title="韭菜熟了" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body>
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">韭菜熟了</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">韭菜熟了</a></h1>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+          <div class="author">mike</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="www.zzzszzz.xyz"><img src="https://i.loli.net/2019/04/17/5cb6ab0c2a104.jpeg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/computer-system/">computer system</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/diary/">diary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/program-lauguage/">program lauguage</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tensorflow/">tensorflow</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">-hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/炮姐-动漫/">-炮姐 -动漫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Phash/">Phash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SAR/">SAR</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dhash/">dhash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matalb/">matalb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/numpy/">numpy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/superpixel/">superpixel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorflow/">tensorflow</a><span class="tag-list-count">9</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">30</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/denjones/hexo-theme-chan" title="Chan" target="_blank" rel="noopener">Chan</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/zhuangzhuangsun" title="Github" target="_blank" rel="noopener">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/atom.xml" title="RSS">RSS</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-tensorboard队列和线程" class="article article-type-post">
+  
+    <h1 class="article-header">
+      tensorboard队列和线程
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2019-07-29
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/tensorflow/">tensorflow</a></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tensorflow/">tensorflow</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <h1 id="队列和线程"><a href="#队列和线程" class="headerlink" title="队列和线程"></a>队列和线程</h1><h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><p>Tensorflow中的队列(queue)本身也是图中的一个节点，是一种有状态的节点，其他节点，如入队节点(enqueue)和出队节点(dequeue)都可以修改它的内容。入队节点可以把新元素插入到队列末尾，出队节点可以把队列前面的元素删除。</p>
+<p>Tensorflow中主要有两种队列，即<strong>FIFOQueue</strong>和<strong>RandomShuffleQueue</strong>。</p>
+<ol>
+<li><p><strong>FIFOQueue</strong></p>
+<p>FIFOQueue创建一个先入先出队列，当我们希望读入的训练样本为有序的，例如语音，文字样本。可以使用FIFOQueue。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建一个FIFOQueue  初始化队列插入0.1，0.2，0.3三个数字</span></span><br><span class="line">q=tf.FIFOQueue(<span class="number">3</span>,<span class="string">'float'</span>)</span><br><span class="line">init=q.enqueue_many(([<span class="number">0.1</span>,<span class="number">0.2</span>,<span class="number">0.3</span>],))</span><br><span class="line"><span class="comment">#定义出队，+1，入队操作  即将x出队加一后再入队</span></span><br><span class="line">x=q.dequeue()</span><br><span class="line">y=x+<span class="number">1</span></span><br><span class="line">q_inc=q.enqueue([y])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#开启一个Session 执行两次q_inc操作  随后查看队列q的内容</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(init)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>):</span><br><span class="line">        sess.run(q_inc)</span><br><span class="line">        quelen=sess.run(q.size())</span><br><span class="line">    fro i <span class="keyword">in</span> range(quelen):</span><br><span class="line">        print(sess.run(q.dequeue()))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输出为：</span><br><span class="line"><span class="number">0.3</span></span><br><span class="line"><span class="number">1.1</span></span><br><span class="line"><span class="number">1.2</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="2">
+<li><p><strong>RandomShuffleQueue</strong></p>
+<p><strong>RandomShuffleQueue</strong>创建一个随机队列，在出队列时，以随机的顺序产生元素，例如，在训练一些图像样本时，使用CNN，希望可以无序地读入训练样本，就可以使用<strong>RandomShuffleQueue</strong>,每次随机产生一个训练样本。</p>
+<p><strong>RandomShuffleQueue在Tensorflow使用异步计算时非常重要，因为Tensorflow会话是支持多线程的，可以在主线程里执行训练操作，使用RandomShuffleQueue作为训练输入，开多个线程来准备训练样本</strong></p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="comment">#创建一个RandomShuffleQueue，队列最大长度为10  出队后最小长度为2</span></span><br><span class="line">q=tf.RandomShuffleQueue(capacity=<span class="number">10</span>,min_after_dequeue=<span class="number">2</span>,dtypes=<span class="string">'float'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#开启一个Session 执行两次q_inc操作  随后查看队列q的内容</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        sess.run(q.enqueue(i))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        print(sess.run(q.dequeue()))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输出为：</span><br><span class="line"><span class="number">6.0</span></span><br><span class="line"><span class="number">7.0</span></span><br><span class="line"><span class="number">2.0</span></span><br><span class="line"><span class="number">4.0</span></span><br><span class="line"><span class="number">1.0</span></span><br><span class="line"><span class="number">8.0</span></span><br><span class="line"><span class="number">3.0</span></span><br><span class="line"><span class="number">5.0</span></span><br></pre></td></tr></table></figure>
+<p>​        我们尝试修改入队次数为12次，再次运行，发现程序阻断不动，或者我们尝试修改出队次数为10次，即不保留队列最小长度，发现队列输出八次结果后，在终端仍然阻断了，在箭头处卡住不动，称为阻断。</p>
+<p>阻断一般发生在：</p>
+<ul>
+<li><p>队列长度等于最小值时，执行出队操作</p>
+</li>
+<li><p>对列长度等于最大值时，执行入队操作</p>
+<p>只有当队列满足要求后，才能继续执行，可以通过设置会话在运行时得等待时间来解除阻断</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">run_options=tf.RunOptions(timeout_in_ms=<span class="number">10000</span>)<span class="comment">#等待10s</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    sess.run(q.dequeue(),options=run_options)</span><br><span class="line"><span class="keyword">except</span> tf.errors.DeadlineExceededError:</span><br><span class="line">    print(<span class="string">'out of range'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="队列管理器-QueueRunner"><a href="#队列管理器-QueueRunner" class="headerlink" title="队列管理器(QueueRunner)"></a>队列管理器(QueueRunner)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#首先创建一个含有队列的图</span></span><br><span class="line">q=tf.FIFOQueue(<span class="number">1000</span>,<span class="string">'float'</span>)</span><br><span class="line">counter=tf.Variable(<span class="number">0.0</span>)</span><br><span class="line">increment_op=tf.assign_add(counter,tf.constant(<span class="number">1.0</span>))<span class="comment">#操作给counter加一</span></span><br><span class="line">enqueue_op=q.enqueue([counter])</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建一个队列管理器QueueRunner，用这两个操作向队列q中添加元素，只使用一个线程</span></span><br><span class="line">qr=tf.train.QueueRunner(q,enqueue_ops=[increment_op,enqueue_op]*<span class="number">1</span>)</span><br><span class="line"><span class="comment">#启动一个会话，从队列管理器qr中创建线程</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(tf.global_variable_initializer())</span><br><span class="line">    enqueue_threads=qr.create_threads(sess,start=true)<span class="comment">#启动入队线程</span></span><br><span class="line">    <span class="comment">#主线程</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        print(sess.run(q.dequeue()))</span><br><span class="line">        </span><br><span class="line"><span class="comment">#输出为：</span></span><br><span class="line"></span><br><span class="line"><span class="number">2.0</span></span><br><span class="line"><span class="number">3.0</span></span><br><span class="line"><span class="number">3.0</span></span><br><span class="line"><span class="number">4.0</span></span><br><span class="line"><span class="number">5.0</span></span><br><span class="line"><span class="number">6.0</span></span><br><span class="line"><span class="number">7.0</span></span><br><span class="line"><span class="number">7.0</span></span><br><span class="line"><span class="number">8.0</span></span><br><span class="line"><span class="number">10.0</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>输出并不是我们所期待的自然序列，并且线程被阻断，这是因为加一操作与入队操作不同步，可能加一操作执行了许多次之后，才会进行一次入队操作，另外因为主线程的训练(出队操作)和兑取数据的线程的训练(入队操作)时异步的，主线程会一直等待数据送入。</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.e" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2019 韭菜熟了 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>

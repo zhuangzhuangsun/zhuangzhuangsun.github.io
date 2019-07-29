@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    tensorboard使用
+  
+</title>
+
+<meta name="description" content="TensorBoard的使用使用TensorBoard展示数据，需要在执行Tensorflow计算图的过程中，将各种类型的数据（summary protobuf）汇总并记录到日志文件中。然后使用TensorBoard读取这些日志文件，解析数据并生产数据可视化的Web页面，让我们可以在浏览器中观察各种汇总数据。 tensorboard可视化的数据类型 SCALARS，对标量数据进行汇总和记录使用方法">
+<meta name="keywords" content="tensorflow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tensorboard使用">
+<meta property="og:url" content="http://yoursite.com/2019/07/29/tensorboard使用/index.html">
+<meta property="og:site_name" content="韭菜熟了">
+<meta property="og:description" content="TensorBoard的使用使用TensorBoard展示数据，需要在执行Tensorflow计算图的过程中，将各种类型的数据（summary protobuf）汇总并记录到日志文件中。然后使用TensorBoard读取这些日志文件，解析数据并生产数据可视化的Web页面，让我们可以在浏览器中观察各种汇总数据。 tensorboard可视化的数据类型 SCALARS，对标量数据进行汇总和记录使用方法">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-07-29T04:51:26.206Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tensorboard使用">
+<meta name="twitter:description" content="TensorBoard的使用使用TensorBoard展示数据，需要在执行Tensorflow计算图的过程中，将各种类型的数据（summary protobuf）汇总并记录到日志文件中。然后使用TensorBoard读取这些日志文件，解析数据并生产数据可视化的Web页面，让我们可以在浏览器中观察各种汇总数据。 tensorboard可视化的数据类型 SCALARS，对标量数据进行汇总和记录使用方法">
+
+
+  <link rel="alternative" href="/atom.xml" title="韭菜熟了" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body>
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">韭菜熟了</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">韭菜熟了</a></h1>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+          <div class="author">mike</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="www.zzzszzz.xyz"><img src="https://i.loli.net/2019/04/17/5cb6ab0c2a104.jpeg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/computer-system/">computer system</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/diary/">diary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/program-lauguage/">program lauguage</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tensorflow/">tensorflow</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">-hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/炮姐-动漫/">-炮姐 -动漫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Phash/">Phash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SAR/">SAR</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dhash/">dhash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matalb/">matalb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/numpy/">numpy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/superpixel/">superpixel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorflow/">tensorflow</a><span class="tag-list-count">9</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">30</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/denjones/hexo-theme-chan" title="Chan" target="_blank" rel="noopener">Chan</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/zhuangzhuangsun" title="Github" target="_blank" rel="noopener">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/atom.xml" title="RSS">RSS</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-tensorboard使用" class="article article-type-post">
+  
+    <h1 class="article-header">
+      tensorboard使用
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2019-07-29
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/tensorflow/">tensorflow</a></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tensorflow/">tensorflow</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <h1 id="TensorBoard的使用"><a href="#TensorBoard的使用" class="headerlink" title="TensorBoard的使用"></a>TensorBoard的使用</h1><p>使用TensorBoard展示数据，需要在执行Tensorflow计算图的过程中，将各种类型的数据（<code>summary protobuf</code>）汇总并记录到日志文件中。然后使用TensorBoard读取这些日志文件，解析数据并生产数据可视化的Web页面，让我们可以在浏览器中观察各种汇总数据。</p>
+<h4 id="tensorboard可视化的数据类型"><a href="#tensorboard可视化的数据类型" class="headerlink" title="tensorboard可视化的数据类型"></a>tensorboard可视化的数据类型</h4><ol>
+<li><strong>SCALARS</strong>，对标量数据进行汇总和记录<br>使用方法：<code>tf.summary.scalar(tags, values, collections=None, name=None)</code></li>
+<li><strong>IMAGES</strong>， 汇总数据中的图像，例如MNIST中可以将输入的向量还原成图片的像素矩阵<br>使用方法：<code>tf.summary.image(tag, tensor, max_images=3, collections=None, name=None)</code></li>
+<li><strong>GRAPHS</strong>， 可视化Tensorflow计算图的结构及计算图上的信息<br>使用方法：<code>tf.summary.FileWriter(logdir, graph)</code><br>其实这个方法是将当前summary protobuf写近日志文件中，但是会自动生成计算图。</li>
+<li><strong>HISTOGRAMS</strong>，记录变量的直方图(张量中元素的取值分布）<br>使用方法：<code>tf.summary.histogram(tag, values, collections=None, name=None）</code></li>
+</ol>
+<h5 id="merge-all"><a href="#merge-all" class="headerlink" title="merge_all()"></a>merge_all()</h5><p>和Tensorflow类似，<code>tf.summaru.histograms()</code>等函数不会立即执行，需要通过<code>sess.run()</code>来明确调用，当日志程序中定义写日志的操作比较多时，可以使用<code>summ = tf.summary.merge_all()</code>函数来整理所有的日志生成操作，最后只需要<code>sess.run(summ)</code>即可将定义中的所有日志生成操作一次执行。</p>
+<h5 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h5><ol>
+<li>添加记录节点：<code>tf.summary.scalar/image/histogram()</code>等</li>
+<li>汇总记录节点：<code>merged = tf.summary.merge_all()</code> </li>
+<li>运行汇总节点：<code>summary = sess.run(merged)</code>，得到汇总结果</li>
+<li>日志书写器实例化：<code>summary_writer = tf.summary.FileWriter(logdir, graph=sess.graph)</code>，实例化的同时传入 graph 将当前计算图写入日志</li>
+<li>调用日志书写器实例对象<code>summary_writer</code>的<code>add_summary(summary, global_step=i)</code>方法将所有汇总日志写入文件</li>
+<li>调用日志书写器实例对象<code>summary_writer</code>的<code>close()</code>方法写入内存，否则它每隔120s写入一次</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#example</span></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义命名空间</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'input'</span>):</span><br><span class="line">  <span class="comment">#fetch：就是同时运行多个op的意思</span></span><br><span class="line">  input1 = tf.constant(<span class="number">3.0</span>,name=<span class="string">'A'</span>)<span class="comment">#定义名称，会在tensorboard中代替显示</span></span><br><span class="line">  input2 = tf.constant(<span class="number">4.0</span>,name=<span class="string">'B'</span>)</span><br><span class="line">  input3 = tf.constant(<span class="number">5.0</span>,name=<span class="string">'C'</span>)</span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'op'</span>):</span><br><span class="line">  <span class="comment">#加法</span></span><br><span class="line">  add = tf.add(input2,input3)</span><br><span class="line">  <span class="comment">#乘法</span></span><br><span class="line">  mul = tf.multiply(input1,add)</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">  <span class="comment">#默认在当前py目录下的logs文件夹，没有会自己创建</span></span><br><span class="line">  wirter = tf.summary.FileWriter(<span class="string">'logs/'</span>,sess.graph)</span><br><span class="line">  result = ss.run([mul,add])</span><br><span class="line">  print(result)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir=路径</span><br></pre></td></tr></table></figure>
+<p>在浏览器中使用<code>http://DESKTOP-JGL4HV5:6006</code>查看可视化结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">## prepare the original data</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'data'</span>):</span><br><span class="line">     x_data = np.random.rand(<span class="number">100</span>).astype(np.float32)</span><br><span class="line">     y_data = <span class="number">0.3</span>*x_data+<span class="number">0.1</span></span><br><span class="line"><span class="comment">##creat parameters</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'parameters'</span>):</span><br><span class="line">     <span class="keyword">with</span> tf.name_scope(<span class="string">'weights'</span>):</span><br><span class="line">            weight = tf.Variable(tf.random_uniform([<span class="number">1</span>],<span class="number">-1.0</span>,<span class="number">1.0</span>))</span><br><span class="line">           tf.summary.histogram(<span class="string">'weight'</span>,weight)</span><br><span class="line">     <span class="keyword">with</span> tf.name_scope(<span class="string">'biases'</span>):</span><br><span class="line">           bias = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line">           tf.summary.histogram(<span class="string">'bias'</span>,bias)</span><br><span class="line"><span class="comment">##get y_prediction</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'y_prediction'</span>):</span><br><span class="line">     y_prediction = weight*x_data+bias</span><br><span class="line"><span class="comment">##compute the loss</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'loss'</span>):</span><br><span class="line">     loss = tf.reduce_mean(tf.square(y_data-y_prediction))</span><br><span class="line">     tf.summary.scalar(<span class="string">'loss'</span>,loss)</span><br><span class="line"><span class="comment">##creat optimizer</span></span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line"><span class="comment">#creat train ,minimize the loss </span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'train'</span>):</span><br><span class="line">     train = optimizer.minimize(loss)</span><br><span class="line"><span class="comment">#creat init</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">'init'</span>): </span><br><span class="line">     init = tf.global_variables_initializer()</span><br><span class="line"><span class="comment">##creat a Session </span></span><br><span class="line">sess = tf.Session()</span><br><span class="line"><span class="comment">#merged</span></span><br><span class="line">merged = tf.summary.merge_all()</span><br><span class="line"><span class="comment">##initialize</span></span><br><span class="line">writer = tf.summary.FileWriter(<span class="string">"logs/"</span>, sess.graph)</span><br><span class="line">sess.run(init)</span><br><span class="line"><span class="comment">## Loop</span></span><br><span class="line"><span class="keyword">for</span> step  <span class="keyword">in</span>  range(<span class="number">101</span>):</span><br><span class="line">    sess.run(train)</span><br><span class="line">    rs=sess.run(merged)</span><br><span class="line">    writer.add_summary(rs, step)</span><br></pre></td></tr></table></figure>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.e" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2019 韭菜熟了 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>

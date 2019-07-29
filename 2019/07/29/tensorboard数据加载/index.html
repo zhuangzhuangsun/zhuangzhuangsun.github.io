@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    tensorboard数据加载
+  
+</title>
+
+<meta name="description" content="Tensorflow加载数据Tensorflow有三种读取数据的方法  预加载数据(preloaded data)。即在tensorflow图中定义常量或者变量来保存数据 填充数据(feeding)。python产生数据，再将数据填充到后端。 从文件中读取(reading from file)。从文件中直接读取，让队列管理器从文件中读取数据  预加载数据1234x1=tf.constant([2,">
+<meta name="keywords" content="tensorflow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tensorboard数据加载">
+<meta property="og:url" content="http://yoursite.com/2019/07/29/tensorboard数据加载/index.html">
+<meta property="og:site_name" content="韭菜熟了">
+<meta property="og:description" content="Tensorflow加载数据Tensorflow有三种读取数据的方法  预加载数据(preloaded data)。即在tensorflow图中定义常量或者变量来保存数据 填充数据(feeding)。python产生数据，再将数据填充到后端。 从文件中读取(reading from file)。从文件中直接读取，让队列管理器从文件中读取数据  预加载数据1234x1=tf.constant([2,">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-07-29T04:56:30.652Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tensorboard数据加载">
+<meta name="twitter:description" content="Tensorflow加载数据Tensorflow有三种读取数据的方法  预加载数据(preloaded data)。即在tensorflow图中定义常量或者变量来保存数据 填充数据(feeding)。python产生数据，再将数据填充到后端。 从文件中读取(reading from file)。从文件中直接读取，让队列管理器从文件中读取数据  预加载数据1234x1=tf.constant([2,">
+
+
+  <link rel="alternative" href="/atom.xml" title="韭菜熟了" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body>
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">韭菜熟了</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">韭菜熟了</a></h1>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+          <div class="author">mike</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="www.zzzszzz.xyz"><img src="https://i.loli.net/2019/04/17/5cb6ab0c2a104.jpeg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/computer-system/">computer system</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/diary/">diary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/program-lauguage/">program lauguage</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tensorflow/">tensorflow</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">-hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/炮姐-动漫/">-炮姐 -动漫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Phash/">Phash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SAR/">SAR</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dhash/">dhash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matalb/">matalb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/numpy/">numpy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/superpixel/">superpixel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorflow/">tensorflow</a><span class="tag-list-count">9</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">30</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/denjones/hexo-theme-chan" title="Chan" target="_blank" rel="noopener">Chan</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/zhuangzhuangsun" title="Github" target="_blank" rel="noopener">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/atom.xml" title="RSS">RSS</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-tensorboard数据加载" class="article article-type-post">
+  
+    <h1 class="article-header">
+      tensorboard数据加载
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2019-07-29
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/tensorflow/">tensorflow</a></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tensorflow/">tensorflow</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <h1 id="Tensorflow加载数据"><a href="#Tensorflow加载数据" class="headerlink" title="Tensorflow加载数据"></a>Tensorflow加载数据</h1><p>Tensorflow有三种读取数据的方法</p>
+<ul>
+<li>预加载数据(preloaded data)。即在tensorflow图中定义常量或者变量来保存数据</li>
+<li>填充数据(feeding)。python产生数据，再将数据填充到后端。</li>
+<li>从文件中读取(reading from file)。从文件中直接读取，让队列管理器从文件中读取数据</li>
+</ul>
+<h3 id="预加载数据"><a href="#预加载数据" class="headerlink" title="预加载数据"></a>预加载数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x1=tf.constant([<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">x2=tf.constant([<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>])</span><br><span class="line"></span><br><span class="line">y=tf.add(x1,x2)</span><br></pre></td></tr></table></figure>
+<p>此方法缺点为将数据直接嵌入数据流图中，当数据较大时，比较消耗内存</p>
+<h3 id="填充数据"><a href="#填充数据" class="headerlink" title="填充数据"></a>填充数据</h3><p>使用sess.run()中的feed_dict参数，将python产生的数据填充入后端</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">a1=tf.placeholder(tf.int16)</span><br><span class="line">a2=tf.placeholder(tf.int16)</span><br><span class="line">b=tf.add(a1,a2)</span><br><span class="line"></span><br><span class="line"><span class="comment">#数据</span></span><br><span class="line"></span><br><span class="line">li1=[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">li2=[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    print(sess.run(b,feed_dict=&#123;a1:li1,a2:li2&#125;))</span><br></pre></td></tr></table></figure>
+<p>此方法也有数据量大，消耗内存等缺点，并且数据类型转换等中间环节增加了不小的开销</p>
+<h3 id="从文件读取数据"><a href="#从文件读取数据" class="headerlink" title="从文件读取数据"></a>从文件读取数据</h3><h5 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h5><ol>
+<li><p>把样本数据写入TFRecords二进制文件</p>
+</li>
+<li><p>从队列中读取数据</p>
+<p><strong>TFRecords</strong>是一种二进制文件，能更好地利用内存，更方便的复制和移动，并且不需要单独的标记文件。</p>
+</li>
+</ol>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.e" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2019 韭菜熟了 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>
