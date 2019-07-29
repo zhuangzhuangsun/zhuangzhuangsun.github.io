@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    tensorboard_tf.app.run
+  
+</title>
+
+<meta name="keywords" content="tensorflow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tensorboard_tf.app.run">
+<meta property="og:url" content="http://yoursite.com/2019/07/29/tensorflow-tf-app-run/index.html">
+<meta property="og:site_name" content="韭菜熟了">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2019/07/29/tensorflow-tf-app-run/dog10.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/29/tensorflow-tf-app-run/1.png">
+<meta property="og:updated_time" content="2019-07-29T05:26:23.460Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tensorboard_tf.app.run">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/29/tensorflow-tf-app-run/dog10.jpg">
+
+
+  <link rel="alternative" href="/atom.xml" title="韭菜熟了" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body>
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">韭菜熟了</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">韭菜熟了</a></h1>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+          <div class="author">mike</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="www.zzzszzz.xyz"><img src="https://i.loli.net/2019/04/17/5cb6ab0c2a104.jpeg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/computer-system/">computer system</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/diary/">diary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/program-lauguage/">program lauguage</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tensorflow/">tensorflow</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">-hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/炮姐-动漫/">-炮姐 -动漫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Phash/">Phash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SAR/">SAR</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dhash/">dhash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matalb/">matalb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/numpy/">numpy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/superpixel/">superpixel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorflow/">tensorflow</a><span class="tag-list-count">9</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">30</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/denjones/hexo-theme-chan" title="Chan" target="_blank" rel="noopener">Chan</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/zhuangzhuangsun" title="Github" target="_blank" rel="noopener">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/atom.xml" title="RSS">RSS</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-tensorflow-tf-app-run" class="article article-type-post">
+  
+    <h1 class="article-header">
+      tensorboard_tf.app.run
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2019-07-29
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/tensorflow/">tensorflow</a></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tensorflow/">tensorflow</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <img src="/2019/07/29/tensorflow-tf-app-run/dog10.jpg" title="dog">
+<a id="more"></a>
+<h3 id="tf-app-flags"><a href="#tf-app-flags" class="headerlink" title="tf.app.flags"></a>tf.app.flags</h3><p>tf.app.flags主要用于处理命令行参数的解析工作，其实可以理解为一个封装好了的argparse包（argparse是一种结构化的数据存储格式，类似于Json、XML）。</p>
+<p>在tensorflow中我们该怎么使用呢？<br>首先我们通过<code>tf.app.flags</code>来调用这个<code>flags.py</code>文件，这样我们就可以用<code>flags.DEFINE_interger/float()</code>来添加命令行参数，而<code>FLAGS=flags.FLAGS</code>可以实例化这个解析参数的类从对应的命令行参数取出参数。<br>新建test.py文件，并输入如下代码，代码的功能是创建几个命令行参数，然后把命令行参数输出显示</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf  </span><br><span class="line"></span><br><span class="line">flags = tf.app.flags</span><br><span class="line">flags.DEFINE_string(<span class="string">'data_dir'</span>, <span class="string">'/tmp/mnist'</span>, <span class="string">'Directory with the MNIST data.'</span>)</span><br><span class="line">flags.DEFINE_integer(<span class="string">'batch_size'</span>, <span class="number">5</span>, <span class="string">'Batch size.'</span>)</span><br><span class="line">flags.DEFINE_integer(<span class="string">'num_evals'</span>, <span class="number">1000</span>, <span class="string">'Number of batches to evaluate.'</span>)</span><br><span class="line">FLAGS = flags.FLAGS</span><br><span class="line"></span><br><span class="line">print(FLAGS.data_dir, FLAGS.batch_size, FLAGS.num_evals)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在命令行中输入<code>test.py -h</code>就可以查看帮助信息，也就是<code>Directory with the MNIST data.</code>，<code>Batch size</code>和<code>Number of batches to evaluate</code>这样的消息。</li>
+<li>在命令行中输入<code>test.py --batchsize 10</code>就可以将batch_size的值修改为10！</li>
+</ul>
+<h3 id="tf-app-run"><a href="#tf-app-run" class="headerlink" title="tf.app.run()"></a>tf.app.run()</h3><p>该函数一般都是出现在这种代码中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    tf.app.run()</span><br></pre></td></tr></table></figure>
+<p>上述第一行代码表示如果当前是从其它模块调用的该模块程序，则不会运行main函数！而如果就是直接运行的该模块程序，则会运行main函数。</p>
+<p>具体第二行的功能从源码开始分析，源码如下：</p>
+<img src="/2019/07/29/tensorflow-tf-app-run/1.png" title="code">
+<p><code>flags_passthrough=f._parse_flags(args=args)</code>这里的<code>parse_flags</code>就是我们<code>tf.app.flags</code>源码中用来解析命令行参数的函数。所以这一行就是解析参数的功能；</p>
+<p>下面两行代码也就是<code>tf.app.run</code>的核心意思：<strong>执行程序中main函数，并解析命令行参数！</strong></p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.e" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2019 韭菜熟了 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>
